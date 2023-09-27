@@ -1,6 +1,6 @@
 package com.vinicius.condominiopro.condomino;
 
-public record DadosTotalCondomino(
+public record ListarTodosCondomino(
 		long condomino_id,
 		String nome,
 	    String cpf,
@@ -9,7 +9,7 @@ public record DadosTotalCondomino(
 	    String morador
 		) {
 	
-	public DadosTotalCondomino (Condomino condomino) {   //CONSTRUTOR PARA PEGAR OS DADOS
+	public ListarTodosCondomino (Condomino condomino) {   //CONSTRUTOR PARA PEGAR OS DADOS
 		this(condomino.getCondomino_id(), condomino.getNome(), condomino.getCpf(), condomino.getRg(), 
 				condomino.getProprietario(), condomino.getMorador());
 	}
