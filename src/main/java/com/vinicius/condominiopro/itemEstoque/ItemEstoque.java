@@ -20,7 +20,7 @@ public class ItemEstoque {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Integer itemEstoque_id;
+    private long itemEstoque_id;
 	
 	@Column(name = "nome")
     private String itemEstoque_descricao;
@@ -28,7 +28,7 @@ public class ItemEstoque {
     
     
   //GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-	public Integer getItemEstoque_id() {
+	public long getItemEstoque_id() {
 		return itemEstoque_id;
 	}
 	public void setItemEstoque_id(Integer itemEstoque_id) {

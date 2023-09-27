@@ -4,7 +4,7 @@ API para conexão do sistema Condomínio PRO com a web.
 Entidades criadas:
 
 Apartamento
-Avisos
+Aviso
 Cidade
 Condomino
 CondominoApartamento
@@ -18,10 +18,32 @@ Licencas
 Login
 Manutencao
 Ocorrencia
-País
+Pais
 SaidaEstoque
 SaidaFinanceiro
 Sindico
 TipoDependente
 Veiculo
 
+Repository:
+ApartamentoRepository
+AvisoRepository
+CidadeRepository
+CondominoRepository
+CondominoApartamentoRepository
+DependenteRepository
+EntradaEstoqueRepository
+EntradaFinanceiroRepository
+EstadoRepository
+FornecedorRepository
+ItemEstoqueRepository
+LicencaRepository
+LoginRepository
+ManutencaoRepository
+OcorrenciaRepository
+PaisRepository
+SaidaEstoqueRepository
+SaidaFinanceiroRepository
+SindicoRepository
+TipoDependenteRepository
+VeiculoRepository

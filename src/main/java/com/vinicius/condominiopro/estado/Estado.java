@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,19 +24,19 @@ public class Estado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private int estado_id;
+    private long estado_id;
 	
 	@Column(name = "nome")
     private String estado_nome;
 	
 	@ManyToOne
-	@Column(name = "pais_id")
+	@JoinColumn(name = "pais_id")
     private Pais pais;
 	
 	
 	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public int getEstado_id() {
+	public long getEstado_id() {
 		return estado_id;
 	}
 

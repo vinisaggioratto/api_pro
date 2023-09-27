@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class Manutencao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Integer manutencao_id;
+    private long manutencao_id;
     
 	@Column(name = "nome")
     private String manutencao_nome;
@@ -38,13 +39,13 @@ public class Manutencao {
     private Date data_final;
     
 	@ManyToOne
-	@Column(name = "fornecedor_id")
+	@JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
 	
 	
 	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public Integer getManutencao_id() {
+	public long getManutencao_id() {
 		return manutencao_id;
 	}
 

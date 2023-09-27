@@ -20,14 +20,14 @@ public class TipoDependente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Integer tipoDepend_id;
+	private long tipoDepend_id;
 
 	@Column(name = "nome")
 	private String tipoDepend_descricao;
 
 	// GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public Integer getTipoDepend_id() {
+	public long getTipoDepend_id() {
 		return tipoDepend_id;
 	}
 

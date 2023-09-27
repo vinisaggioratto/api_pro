@@ -20,7 +20,7 @@ public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private int pais_id;
+    private long pais_id;
 	
 	@Column(name = "nome")
     private String pais_nome;
@@ -28,7 +28,7 @@ public class Pais {
 	
 	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public int getPais_id() {
+	public long getPais_id() {
 		return pais_id;
 	}
 

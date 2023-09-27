@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -29,11 +30,11 @@ public class CondominoApartamento {
 	private long id;
 
 	@ManyToOne
-	@Column(name = "condomino_id")
+	@JoinColumn(name = "condomino_id")
 	private Condomino condomino;
 
 	@ManyToOne
-	@Column(name = "apartamento_id")
+	@JoinColumn(name = "apartamento_id")
 	private Apartamento apartamento;
 
 	private Date data_entrada;

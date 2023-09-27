@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -26,10 +27,10 @@ public class EntradaEstoque {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Integer entradaEstoque_id;
+    private long entradaEstoque_id;
 	
 	@ManyToOne
-	@Column(name = "item_estoque_id")
+	@JoinColumn(name = "item_estoque_id")
     private ItemEstoque itemEstoque;
 	
 	@Column(name = "nome")
@@ -39,13 +40,13 @@ public class EntradaEstoque {
     private Date data_entrada;
     
 	@ManyToOne
-	@Column(name = "fornecedor_id")
+	@JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
 	
 	
 	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public Integer getEntradaEstoque_id() {
+	public long getEntradaEstoque_id() {
 		return entradaEstoque_id;
 	}
 

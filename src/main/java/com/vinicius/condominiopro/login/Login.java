@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -23,18 +24,18 @@ public class Login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Integer login_id;
+    private long login_id;
 	
     private String usuario;
     private String senha;
     
 	@ManyToOne
-	@Column(name = "condomino_id")
+	@JoinColumn(name = "condomino_id")
     private Condomino condomino;
 	
 	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public Integer getLogin_id() {
+	public long getLogin_id() {
 		return login_id;
 	}
 

@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class Dependente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Integer dependente_id;
+    private long dependente_id;
 	
 	private String nome;
     private String cpf;
@@ -33,16 +34,16 @@ public class Dependente {
     private String morador;
     
 	@ManyToOne
-	@Column(name = "tipo_dependente_id")
+	@JoinColumn(name = "tipo_dependente_id")
     private TipoDependente tipoDependente;
     
 	@ManyToOne
-	@Column(name = "condomino_id")
+	@JoinColumn(name = "condomino_id")
     private Condomino condomino;
 	
     //GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public Integer getDependente_id() {
+	public long getDependente_id() {
 		return dependente_id;
 	}
 

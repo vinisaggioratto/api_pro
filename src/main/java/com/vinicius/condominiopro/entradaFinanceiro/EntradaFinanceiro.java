@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,12 +26,12 @@ public class EntradaFinanceiro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Integer recebCond_id;
+    private long recebCond_id;
     
     private Date data_operacao;
     
 	@ManyToOne
-	@Column(name = "condomino_id")
+	@JoinColumn(name = "condomino_id")
     private Condomino condomino;
 	
     private double valor;
@@ -42,7 +43,7 @@ public class EntradaFinanceiro {
 	
 	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public Integer getRecebCond_id() {
+	public long getRecebCond_id() {
 		return recebCond_id;
 	}
 
