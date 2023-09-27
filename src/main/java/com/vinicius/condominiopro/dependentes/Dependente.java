@@ -1,45 +1,53 @@
-package com.vinicius.condominiopro.condomino;
+package com.vinicius.condominiopro.dependentes;
+
+import com.vinicius.condominiopro.condomino.Condomino;
+import com.vinicius.condominiopro.tipoDependente.TipoDependente;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "Condomino")
-@Table(name = "condomino")
+@Entity(name = "Dependente")
+@Table(name = "dependentes")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "condomino_id")
-public class Condomino {
-	
+@EqualsAndHashCode(of = "dependente_id")
+public class Dependente {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long condomino_id;
+    private Integer dependente_id;
 	
 	private String nome;
-	
     private String cpf;
     private String rg;
-    private String proprietario;
     private String telefone_celular;
     private String morador;
-
     
+	@ManyToOne
+	@Column(name = "tipo_dependente_id")
+    private TipoDependente tipoDependente;
+    
+	@ManyToOne
+	@Column(name = "condomino_id")
+    private Condomino condomino;
+	
     //GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-    
-    
-	public long getCondomino_id() {
-		return condomino_id;
+
+	public Integer getDependente_id() {
+		return dependente_id;
 	}
 
-	public void setCondomino_id(long condomino_id) {
-		this.condomino_id = condomino_id;
+	public void setDependente_id(Integer dependente_id) {
+		this.dependente_id = dependente_id;
 	}
 
 	public String getNome() {
@@ -66,14 +74,6 @@ public class Condomino {
 		this.rg = rg;
 	}
 
-	public String getProprietario() {
-		return proprietario;
-	}
-
-	public void setProprietario(String proprietario) {
-		this.proprietario = proprietario;
-	}
-
 	public String getTelefone_celular() {
 		return telefone_celular;
 	}
@@ -89,5 +89,21 @@ public class Condomino {
 	public void setMorador(String morador) {
 		this.morador = morador;
 	}
- 
+
+	public TipoDependente getTipoDependente() {
+		return tipoDependente;
+	}
+
+	public void setTipoDependente(TipoDependente tipoDependente) {
+		this.tipoDependente = tipoDependente;
+	}
+
+	public Condomino getCondomino() {
+		return condomino;
+	}
+
+	public void setCondomino(Condomino condomino) {
+		this.condomino = condomino;
+	}
+    
 }
