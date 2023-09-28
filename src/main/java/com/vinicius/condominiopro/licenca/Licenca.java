@@ -19,6 +19,21 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "licenca_id")
 public class Licenca {
 	
+	public Licenca() {
+		super();
+	}
+	
+	public Licenca(DadosCadastrarLicenca dados) {
+		super();
+		this.licenca_nome = dados.licenca_nome();
+		this.licenca_descricao = dados.licenca_descricao();
+		this.numero = dados.numero();
+		this.emissor = dados.emissor();
+		this.data_emissao = dados.data_emissao();
+		this.data_validade = dados.data_validade();
+		this.valido = dados.valido();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

@@ -23,6 +23,20 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "saidaPag_id")
 public class SaidaFinanceiro {
 	
+	public SaidaFinanceiro() {
+		super();
+	}
+
+	public SaidaFinanceiro(DadosCadastrarSaidaFinanceiro dados) {
+		super();
+		this.data_operacao = dados.data_operacao();
+		this.fornecedor = dados.fornecedor();
+		this.nota_fiscal = dados.nota_fiscal();
+		this.valor = dados.valor();
+		this.parcelamento = dados.parcelamento();
+		this.saidaPag_descricao = dados.saidaPag_descricao();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

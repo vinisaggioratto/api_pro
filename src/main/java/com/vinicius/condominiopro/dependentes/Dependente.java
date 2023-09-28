@@ -22,11 +22,29 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "dependente_id")
 public class Dependente {
 
+	public Dependente() {
+		super();
+	}
+	
+	
+
+	public Dependente(DadosCadastrarDependente dados) {
+		super();
+		this.nome = dados.nome();
+		this.cpf = dados.cpf();
+		this.rg = dados.rg();
+		this.telefone_celular = dados.telefone_celular();
+		this.morador = dados.morador();
+		this.tipoDependente = dados.tipoDependente();
+		this.condomino = dados.condomino();
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
     private long dependente_id;
-	
 	private String nome;
     private String cpf;
     private String rg;

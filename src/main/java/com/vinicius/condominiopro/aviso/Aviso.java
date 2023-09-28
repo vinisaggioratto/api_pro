@@ -23,6 +23,19 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "aviso_id")
 public class Aviso {
 	
+	public Aviso(DadosCadastrarAviso dados) {
+		this.aviso_nome = dados.aviso_nome();
+		this.aviso_descricao = dados.aviso_descricao();
+		this.data_aviso = dados.data_aviso();
+		this.sindico = dados.sindico();
+	}
+	
+		
+	public Aviso() {
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

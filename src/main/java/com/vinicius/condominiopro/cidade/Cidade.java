@@ -20,13 +20,34 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "cidade_id")
 public class Cidade {
+	
+	
+
+	public Cidade() {
+		super();
+	}
+	
+	
+
+	public Cidade(long cidade_id) {
+		super();
+		this.cidade_id = cidade_id;
+	}
+
+
+
+	public Cidade(DadosCadastrarCidade dados) {
+		super();
+		this.cidade_nome = dados.cidade_nome();
+		this.estado = dados.estado();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
     private long cidade_id;
 	
-	@Column(name = "cidade")
+	@Column(name = "nome")
     private String cidade_nome;
 	
 	@ManyToOne

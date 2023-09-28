@@ -17,13 +17,35 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "condomino_id")
 public class Condomino {
 	
+	public Condomino() {
+		super();
+	}
+	
+	
+
+	public Condomino(long condomino_id) {
+		super();
+		this.condomino_id = condomino_id;
+	}
+
+
+
+	public Condomino(DadosCadastrarCondomino dados) {
+		super();
+		this.nome = dados.nome();
+		this.cpf = dados.cpf();
+		this.rg = dados.rg();
+		this.proprietario = dados.proprietario();
+		this.telefone_celular = dados.telefone_celular();
+		this.morador = dados.morador();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
     private long condomino_id;
 	
 	private String nome;
-	
     private String cpf;
     private String rg;
     private String proprietario;

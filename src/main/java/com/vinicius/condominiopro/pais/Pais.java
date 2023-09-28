@@ -17,6 +17,24 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "pais_id")
 public class Pais {
 	
+	public Pais() {
+		super();
+	}
+	
+	
+
+	public Pais(long pais_id) {
+		super();
+		this.pais_id = pais_id;
+	}
+
+
+
+	public Pais(DadosCadastrarPais dados) {
+		super();
+		this.pais_nome = dados.pais_nome();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

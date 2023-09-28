@@ -24,6 +24,23 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "apartamento_id")
 public class CondominoApartamento {
 
+	
+	public CondominoApartamento() {
+		super();
+	}
+
+	
+	
+	public CondominoApartamento(DadosCadastrarCondominoApartamento dados) {
+		super();
+		this.condomino = dados.condomino();
+		this.apartamento = dados.apartamento();
+		this.data_entrada = dados.data_entrada();
+		this.data_saida = dados.data_saida();
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

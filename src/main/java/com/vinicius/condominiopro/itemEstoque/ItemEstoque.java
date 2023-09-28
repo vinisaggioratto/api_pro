@@ -17,12 +17,29 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "itemEstoque_id")
 public class ItemEstoque {
 	
+	public ItemEstoque() {
+		super();
+	}
+	
+	
+	public ItemEstoque(long itemEstoque_id) {
+		super();
+		this.itemEstoque_id = itemEstoque_id;
+	}
+
+
+	public ItemEstoque(DadosCadastrarItemEstoque dados) {
+		super();
+		this.itemEstoque_descricao = dados.itemEstoque_descricao();
+		this.estoque = dados.estoque();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
     private long itemEstoque_id;
 	
-	@Column(name = "nome")
+	@Column(name = "descricao")
     private String itemEstoque_descricao;
     private Integer estoque;
     

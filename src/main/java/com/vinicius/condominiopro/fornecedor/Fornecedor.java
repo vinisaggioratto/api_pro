@@ -22,6 +22,32 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "fornecedor_id")
 public class Fornecedor {
 
+	public Fornecedor() {
+		super();
+	}
+	
+	
+
+	public Fornecedor(long fornecedor_id) {
+		super();
+		this.fornecedor_id = fornecedor_id;
+	}
+
+
+
+	public Fornecedor(DadosCadastrarFornecedor dados) {
+		super();
+		this.nome = dados.nome();
+		this.cpfCnpj = dados.cpfCnpj();
+		this.telefone_celular = dados.telefone_celular();
+		this.especialidade = dados.especialidade();
+		this.rua = dados.rua();
+		this.bairro = dados.bairro();
+		this.numero = dados.numero();
+		this.cidade = dados.cidade();
+		this.estado = dados.estado();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

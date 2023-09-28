@@ -21,6 +21,17 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "login_id")
 public class Login {
 	
+	public Login() {
+		super();
+	}
+
+	public Login(DadosCadastrarLogin dados) {
+		super();
+		this.usuario = dados.usuario();
+		this.senha = dados.senha();
+		this.condomino = dados.condomino();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

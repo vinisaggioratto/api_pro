@@ -22,6 +22,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "recebCond_id")
 public class EntradaFinanceiro {
+	
+	public EntradaFinanceiro() {
+		super();
+	}
+
+	public EntradaFinanceiro(DadosCadastrarEntradaFinanceiro dados) {
+		super();
+		this.data_operacao = dados.data_operacao();
+		this.condomino = dados.condomino();
+		this.valor = dados.valor();
+		this.parcelamento = dados.parcelamento();
+		this.recebCond_descricao = dados.recebCond_descricao();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

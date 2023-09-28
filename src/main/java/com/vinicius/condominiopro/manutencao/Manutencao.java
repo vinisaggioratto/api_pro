@@ -23,6 +23,20 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "manutencao_id")
 public class Manutencao {
 	
+	public Manutencao() {
+		super();
+	}
+
+	public Manutencao(DadosCadastrarManutencao dados) {
+		super();
+		this.manutencao_nome = dados.manutencao_nome();
+		this.manutencao_descricao = dados.manutencao_descricao();
+		this.valor = dados.valor();
+		this.data_inicial = dados.data_inicial();
+		this.data_final = dados.data_final();
+		this.fornecedor = dados.fornecedor();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

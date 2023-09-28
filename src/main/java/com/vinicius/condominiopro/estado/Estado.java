@@ -21,6 +21,25 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "estado_id")
 public class Estado {
 
+	public Estado() {
+		super();
+	}
+	
+	
+
+	public Estado(long estado_id) {
+		super();
+		this.estado_id = estado_id;
+	}
+
+
+
+	public Estado(DadosCadastrarEstado dados) {
+		super();
+		this.estado_nome = dados.estado_nome();
+		this.pais = dados.pais();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

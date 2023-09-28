@@ -24,6 +24,31 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "entradaEstoque_id")
 public class EntradaEstoque {
 	
+	public EntradaEstoque() {
+		super();
+	}
+	
+	
+	
+	public EntradaEstoque(long entradaEstoque_id) {
+		super();
+		this.entradaEstoque_id = entradaEstoque_id;
+	}
+
+
+
+	public EntradaEstoque(DadosCadastrarEntradaEstoque dados) {
+		super();
+		this.itemEstoque = dados.itemEstoque();
+		this.entradaEstoque_descricao = dados.entradaEstoque_descricao();
+		this.quantidade = dados.quantidade();
+		this.valor_unitario = dados.valor_unitario();
+		this.data_entrada = dados.data_entrada();
+		this.fornecedor = dados.fornecedor();
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

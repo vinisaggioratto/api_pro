@@ -21,6 +21,20 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "veiculo_id")
 public class Veiculo {
 
+	public Veiculo() {
+		super();
+	}
+
+	public Veiculo(DadosCadastrarVeiculo dados) {
+		super();
+		this.placa = dados.placa();
+		this.marca = dados.marca();
+		this.cor = dados.cor();
+		this.ativo = dados.ativo();
+		this.modelo = dados.modelo();
+		this.condomino = dados.condomino();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

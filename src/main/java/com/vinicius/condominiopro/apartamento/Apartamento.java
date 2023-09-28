@@ -26,6 +26,15 @@ public class Apartamento {
 
 	public Apartamento() {
 	}
+	
+	
+
+	public Apartamento(long apartamento_id) {
+		super();
+		this.apartamento_id = apartamento_id;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

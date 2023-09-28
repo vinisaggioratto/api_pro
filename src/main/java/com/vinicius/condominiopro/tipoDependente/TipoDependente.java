@@ -17,12 +17,30 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "tipoDepend_id")
 public class TipoDependente {
 
+	public TipoDependente() {
+		super();
+	}
+	
+	
+
+	public TipoDependente(long tipoDepend_id) {
+		super();
+		this.tipoDepend_id = tipoDepend_id;
+	}
+
+
+
+	public TipoDependente(DadosCadastrarTipoDependente dados) {
+		super();
+		this.tipoDepend_descricao = dados.tipoDepend_descricao();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private long tipoDepend_id;
 
-	@Column(name = "nome")
+	@Column(name = "descricao")
 	private String tipoDepend_descricao;
 
 	// GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
