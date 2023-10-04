@@ -24,12 +24,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "apartamento_id")
 public class CondominoApartamento {
 
-	
-	public CondominoApartamento() {
-		super();
-	}
 
-	
 	
 	public CondominoApartamento(DadosCadastrarCondominoApartamento dados) {
 		super();

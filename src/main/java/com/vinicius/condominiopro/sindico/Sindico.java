@@ -23,9 +23,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "aviso_id")
 public class Sindico {
 
-	public Sindico() {
-		super();
-	}
 
 	public Sindico(long sindico_id) {
 		super();

@@ -23,12 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "entradaEstoque_id")
 public class EntradaEstoque {
-	
-	public EntradaEstoque() {
-		super();
-	}
-	
-	
+
 	
 	public EntradaEstoque(long entradaEstoque_id) {
 		super();

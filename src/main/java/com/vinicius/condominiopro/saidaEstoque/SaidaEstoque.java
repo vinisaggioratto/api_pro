@@ -22,11 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "saidaEstoque_id")
 public class SaidaEstoque {
-	
-	public SaidaEstoque() {
-		super();
-	}
-	
+
 	public SaidaEstoque(DadosCadastrarSaidaEstoque dados) {
 		super();
 		this.itemEstoque = dados.itemEstoque();

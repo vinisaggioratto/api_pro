@@ -22,11 +22,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "dependente_id")
 public class Dependente {
 
-	public Dependente() {
-		super();
-	}
-	
-	
 
 	public Dependente(DadosCadastrarDependente dados) {
 		super();

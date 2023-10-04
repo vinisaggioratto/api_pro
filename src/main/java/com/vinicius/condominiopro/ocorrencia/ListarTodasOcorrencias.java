@@ -8,7 +8,7 @@ public record ListarTodasOcorrencias(
 		String ocorrencia_descricao,
 		Date data_ocorrencia,
 		String sindico,
-		String codomino
+		String condomino
 		) {
 
 	public ListarTodasOcorrencias(Ocorrencia ocorrencia) {

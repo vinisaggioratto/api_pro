@@ -23,9 +23,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "saidaPag_id")
 public class SaidaFinanceiro {
 	
-	public SaidaFinanceiro() {
-		super();
-	}
 
 	public SaidaFinanceiro(DadosCadastrarSaidaFinanceiro dados) {
 		super();

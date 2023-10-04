@@ -17,10 +17,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "tipoDepend_id")
 public class TipoDependente {
 
-	public TipoDependente() {
-		super();
-	}
-	
 	
 
 	public TipoDependente(long tipoDepend_id) {

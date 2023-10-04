@@ -12,20 +12,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "EntradaFinanceiro")
 @Table(name = "entrada_financeiro")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "recebCond_id")
 public class EntradaFinanceiro {
-	
-	public EntradaFinanceiro() {
-		super();
-	}
 
 	public EntradaFinanceiro(DadosCadastrarEntradaFinanceiro dados) {
 		super();
@@ -35,7 +31,6 @@ public class EntradaFinanceiro {
 		this.parcelamento = dados.parcelamento();
 		this.recebCond_descricao = dados.recebCond_descricao();
 	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -46,62 +41,13 @@ public class EntradaFinanceiro {
 	@ManyToOne
 	@JoinColumn(name = "condomino_id")
     private Condomino condomino;
-	
+
+	@Column(name = "valor")
     private double valor;
     private String parcelamento;
     
 	@Column(name = "descricao")
     private String recebCond_descricao;
 	
-	
-	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public long getRecebCond_id() {
-		return recebCond_id;
-	}
-
-	public void setRecebCond_id(Integer recebCond_id) {
-		this.recebCond_id = recebCond_id;
-	}
-
-	public Date getData_operacao() {
-		return data_operacao;
-	}
-
-	public void setData_operacao(Date data_operacao) {
-		this.data_operacao = data_operacao;
-	}
-
-	public Condomino getCondomino() {
-		return condomino;
-	}
-
-	public void setCondomino(Condomino condomino) {
-		this.condomino = condomino;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
-	public String getParcelamento() {
-		return parcelamento;
-	}
-
-	public void setParcelamento(String parcelamento) {
-		this.parcelamento = parcelamento;
-	}
-
-	public String getRecebCond_descricao() {
-		return recebCond_descricao;
-	}
-
-	public void setRecebCond_descricao(String recebCond_descricao) {
-		this.recebCond_descricao = recebCond_descricao;
-	}
-	
 }

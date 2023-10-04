@@ -21,9 +21,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "login_id")
 public class Login {
 	
-	public Login() {
-		super();
-	}
+
 
 	public Login(DadosCadastrarLogin dados) {
 		super();

@@ -22,11 +22,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "fornecedor_id")
 public class Fornecedor {
 
-	public Fornecedor() {
-		super();
-	}
-	
-	
+
 
 	public Fornecedor(long fornecedor_id) {
 		super();

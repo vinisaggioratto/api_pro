@@ -18,11 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "licenca_id")
 public class Licenca {
-	
-	public Licenca() {
-		super();
-	}
-	
+
 	public Licenca(DadosCadastrarLicenca dados) {
 		super();
 		this.licenca_nome = dados.licenca_nome();

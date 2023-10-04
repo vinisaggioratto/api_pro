@@ -16,11 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "pais_id")
 public class Pais {
-	
-	public Pais() {
-		super();
-	}
-	
+
 	
 
 	public Pais(long pais_id) {

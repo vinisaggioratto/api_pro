@@ -18,7 +18,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/ocupacao")
+@RequestMapping("/vincular")
 public class CondominoApartamentoController {
 
 	@Autowired

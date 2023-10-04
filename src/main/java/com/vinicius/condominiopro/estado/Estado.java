@@ -21,18 +21,12 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "estado_id")
 public class Estado {
 
-	public Estado() {
-		super();
-	}
-	
 	
 
 	public Estado(long estado_id) {
 		super();
 		this.estado_id = estado_id;
 	}
-
-
 
 	public Estado(DadosCadastrarEstado dados) {
 		super();

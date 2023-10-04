@@ -16,11 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "condomino_id")
 public class Condomino {
-	
-	public Condomino() {
-		super();
-	}
-	
+
 	
 
 	public Condomino(long condomino_id) {

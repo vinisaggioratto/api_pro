@@ -21,13 +21,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "cidade_id")
 public class Cidade {
 	
-	
-
-	public Cidade() {
-		super();
-	}
-	
-	
 
 	public Cidade(long cidade_id) {
 		super();

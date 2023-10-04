@@ -21,9 +21,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "veiculo_id")
 public class Veiculo {
 
-	public Veiculo() {
-		super();
-	}
 
 	public Veiculo(DadosCadastrarVeiculo dados) {
 		super();

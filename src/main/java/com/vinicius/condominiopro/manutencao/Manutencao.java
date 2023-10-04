@@ -22,10 +22,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "manutencao_id")
 public class Manutencao {
-	
-	public Manutencao() {
-		super();
-	}
 
 	public Manutencao(DadosCadastrarManutencao dados) {
 		super();

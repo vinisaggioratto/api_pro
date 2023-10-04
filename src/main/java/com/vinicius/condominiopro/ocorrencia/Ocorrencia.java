@@ -23,11 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "ocorrencia_id")
 public class Ocorrencia {
-	
-	public Ocorrencia() {
-		super();
-	}
-	
+
 	
 
 	public Ocorrencia(DadosCadastrarOcorrencia dados) {

@@ -29,11 +29,6 @@ public class Aviso {
 		this.data_aviso = dados.data_aviso();
 		this.sindico = dados.sindico();
 	}
-	
-		
-	public Aviso() {
-	}
-
 
 
 	@Id
