@@ -1,12 +1,11 @@
 package com.vinicius.condominiopro.pais;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.pl.PESEL;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "Pais")
 @Table(name = "pais")
@@ -20,8 +19,11 @@ public class Pais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long pais_id;
+    private Long pais_id;
 	
 	@Column(name = "nome")
     private String nome;
+
+	@ManyToMany
+	public List<Pais> paisList = new ArrayList<>();
 }

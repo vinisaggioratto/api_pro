@@ -6,4 +6,5 @@ import com.vinicius.condominiopro.pais.Pais;
 
 public interface PaisRepository extends JpaRepository<Pais, Long>{
 
+    Pais findByNome(String nome);
 }

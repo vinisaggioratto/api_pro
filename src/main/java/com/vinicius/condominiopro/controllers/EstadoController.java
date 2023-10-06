@@ -1,17 +1,17 @@
 package com.vinicius.condominiopro.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.vinicius.condominiopro.pais.PaisConverter;
+import com.vinicius.condominiopro.services.EstadoService;
+import com.vinicius.condominiopro.services.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
-import com.vinicius.condominiopro.estado.DadosCadastrarEstado;
 import com.vinicius.condominiopro.estado.Estado;
-import com.vinicius.condominiopro.estado.ListarTodosEstados;
 import com.vinicius.condominiopro.repository.EstadoRepository;
 
 import jakarta.transaction.Transactional;
@@ -19,19 +19,50 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/estados")
+@CrossOrigin(origins = "*")
 public class EstadoController {
 
 	@Autowired
 	private EstadoRepository repository;
+
+	@Autowired
+	private EstadoService service;
+
+	@Autowired
+	private PaisConverter paisConverter;
 	
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastrarEstado dados) {
-		repository.save(new Estado(dados));
+	public void cadastrar(@RequestBody @Valid Estado estado) {
+		service.salvar(estado);
 	}
-	
+
 	@GetMapping
-	public List<ListarTodosEstados> listar(){
-		return repository.findAll().stream().map(ListarTodosEstados::new).toList();
+	public List<Estado> listar(){
+		List<Estado> estado = service.listar();
+		return estado;
+	}
+
+	@PutMapping("/{id}")
+	@Transactional
+	public ResponseEntity<String> atualizar(@Valid @RequestBody Estado dados, @PathVariable Long id) {
+
+		Optional<Estado> estadoExistente = repository.findById(id);
+		if (estadoExistente.isPresent()) {
+			Estado estado = estadoExistente.get();
+			estado.setNome(dados.getNome());
+			estado.setPais(paisConverter.convert(dados.getPais().getNome()));
+
+			service.salvar(estado);
+			return ResponseEntity.ok("Estado atualizado com sucesso!");
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+	@DeleteMapping("/{id}")
+	@Transactional
+	public void excluir(@PathVariable Long id) {
+		service.deletar(id);
 	}
 }

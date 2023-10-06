@@ -18,6 +18,6 @@ public record ListarTodosFornecedores(
 		this(fornecedor.getFornecedor_id(), fornecedor.getNome(), fornecedor.getCpfCnpj(),
 				fornecedor.getTelefone_celular(), fornecedor.getEspecialidade(), 
 				fornecedor.getRua(), fornecedor.getBairro(), fornecedor.getNumero(),
-				fornecedor.getCidade().getCidade_nome(), fornecedor.getEstado().getEstado_nome());
+				fornecedor.getCidade().getCidade_nome(), fornecedor.getEstado().getNome());
 	}
 }
