@@ -28,6 +28,7 @@ public class ApartamentoController {
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody @Valid Apartamento dados) {
+
         service.salvar(dados);
     }
 
@@ -59,7 +60,6 @@ public class ApartamentoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-
         service.deletar(id);
     }
 }

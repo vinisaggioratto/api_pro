@@ -9,6 +9,6 @@ public record ListarTodosEstados(
 	public ListarTodosEstados(Estado estado) {
 		this(estado.getEstado_id(),
 				estado.getEstado_nome(),
-				estado.getPais().getPais_nome());
+				estado.getPais().getNome());
 	}
 }

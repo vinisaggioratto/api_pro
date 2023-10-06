@@ -1,27 +1,30 @@
 package com.vinicius.condominiopro.services;
 
 import com.vinicius.condominiopro.apartamento.Apartamento;
-import com.vinicius.condominiopro.repository.ApartamentoRepository;
+import com.vinicius.condominiopro.pais.Pais;
+import com.vinicius.condominiopro.repository.PaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ApartamentoService {
+public class PaisService {
 
     @Autowired
-    ApartamentoRepository repository;
+    PaisRepository repository;
 
-    public List<Apartamento> listar(){
+    public List<Pais> listar(){
+
         return repository.findAll().stream().toList();
     }
 
-    public void salvar(Apartamento apartamento){
-        repository.save(apartamento);
+    public void salvar(Pais pais){
+        repository.save(pais);
     }
 
-    public Apartamento buscarPorId(Long id){
+    public Pais buscarPorId(Long id){
+
         return repository.findById(id).orElse(null);
     }
 

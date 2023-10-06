@@ -18,7 +18,6 @@ import lombok.*;
 @EqualsAndHashCode(of = "apartamento_id")
 public class Apartamento {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
