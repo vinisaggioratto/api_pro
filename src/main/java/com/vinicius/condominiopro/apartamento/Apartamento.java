@@ -18,12 +18,6 @@ import lombok.*;
 @EqualsAndHashCode(of = "apartamento_id")
 public class Apartamento {
 
-	public Apartamento(DadosCadastrarApartamento dados) {
-		this.numero = dados.numero();
-		this.andar = dados.andar();
-		this.bloco = dados.bloco();
-		this.status = dados.status();
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,13 +29,4 @@ public class Apartamento {
 	private String bloco;
 	private String status;
 
-	public void atualizar(@Valid DadosAtualizarApartamento dados) {
-
-		if(dados.numero() != null){
-			this.numero = dados.numero();
-			this.andar = dados.andar();
-			this.bloco = dados.bloco();
-			this.status = dados.status();
-		}
-	}
 }

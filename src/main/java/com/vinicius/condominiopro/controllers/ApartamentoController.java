@@ -4,14 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 
+import com.vinicius.condominiopro.services.ApartamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import com.vinicius.condominiopro.apartamento.Apartamento;
-import com.vinicius.condominiopro.apartamento.DadosCadastrarApartamento;
-import com.vinicius.condominiopro.apartamento.ListarTodosApartamentos;
 import com.vinicius.condominiopro.repository.ApartamentoRepository;
 
 import jakarta.transaction.Transactional;
@@ -25,16 +22,19 @@ public class ApartamentoController {
     @Autowired
     private ApartamentoRepository repository;
 
+    @Autowired
+    private ApartamentoService service;
+
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastrarApartamento dados) {
-
-        repository.save(new Apartamento(dados));
+    public void cadastrar(@RequestBody @Valid Apartamento dados) {
+        service.salvar(dados);
     }
 
     @GetMapping
-    public List<ListarTodosApartamentos> listar() {
-        return repository.findAll().stream().map(ListarTodosApartamentos::new).toList();
+    public List<Apartamento> listar(){
+        List<Apartamento> apto = service.listar();
+        return apto;
     }
 
     @PutMapping("/{id}")
@@ -49,7 +49,7 @@ public class ApartamentoController {
             apartamento.setAndar(dados.getAndar());
             apartamento.setBloco(dados.getBloco());
             apartamento.setStatus(dados.getStatus());
-            repository.save(apartamento);
+            service.salvar(apartamento);
             return ResponseEntity.ok("Apartamento atualizado com sucesso!");
         } else {
             return ResponseEntity.notFound().build();
@@ -59,6 +59,7 @@ public class ApartamentoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-        repository.deleteById(id);
+
+        service.deletar(id);
     }
 }
