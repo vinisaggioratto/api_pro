@@ -9,12 +9,29 @@ import java.util.List;
 
 @Entity(name = "Pais")
 @Table(name = "pais")
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "pais_id")
 public class Pais {
+
+	public Pais(){
+
+	}
+
+	public Pais(Long pais_id) {
+		this.pais_id = pais_id;
+	}
+
+	public Pais(String nome) {
+		this.nome = nome;
+	}
+
+	public Pais(Long pais_id, String nome) {
+		this.pais_id = pais_id;
+		this.nome = nome;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +41,6 @@ public class Pais {
 	@Column(name = "nome")
     private String nome;
 
-	@ManyToMany
-	public List<Pais> paisList = new ArrayList<>();
+//	@ManyToMany
+//	public List<Pais> paisList = new ArrayList<>();
 }

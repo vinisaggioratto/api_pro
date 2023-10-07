@@ -1,6 +1,7 @@
 package com.vinicius.condominiopro.services;
 
 import com.vinicius.condominiopro.apartamento.Apartamento;
+import com.vinicius.condominiopro.estado.Estado;
 import com.vinicius.condominiopro.pais.Pais;
 import com.vinicius.condominiopro.repository.PaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class PaisService {
     public Pais buscarPorId(Long id){
 
         return repository.findById(id).orElse(null);
+    }
+
+    public Pais retornarIdPais(String paisNome) {
+        Pais pais = repository.findByNome(paisNome);
+        return pais;
     }
 
     public void deletar(Long id){

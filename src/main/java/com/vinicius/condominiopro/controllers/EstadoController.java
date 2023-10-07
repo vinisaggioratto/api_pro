@@ -3,12 +3,10 @@ package com.vinicius.condominiopro.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.vinicius.condominiopro.pais.PaisConverter;
 import com.vinicius.condominiopro.services.EstadoService;
 import com.vinicius.condominiopro.services.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import com.vinicius.condominiopro.estado.Estado;
@@ -28,12 +26,13 @@ public class EstadoController {
 	@Autowired
 	private EstadoService service;
 
-	@Autowired
-	private PaisConverter paisConverter;
-	
+
+
 	@PostMapping
 	@Transactional
 	public void cadastrar(@RequestBody @Valid Estado estado) {
+
+
 		service.salvar(estado);
 	}
 
@@ -51,7 +50,7 @@ public class EstadoController {
 		if (estadoExistente.isPresent()) {
 			Estado estado = estadoExistente.get();
 			estado.setNome(dados.getNome());
-			estado.setPais(paisConverter.convert(dados.getPais().getNome()));
+			estado.setPais(dados.getPais());
 
 			service.salvar(estado);
 			return ResponseEntity.ok("Estado atualizado com sucesso!");

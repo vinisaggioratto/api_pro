@@ -1,7 +1,7 @@
 package com.vinicius.condominiopro.services;
 
 import com.vinicius.condominiopro.estado.Estado;
-import com.vinicius.condominiopro.pais.PaisConverter;
+import com.vinicius.condominiopro.pais.Pais;
 import com.vinicius.condominiopro.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,16 +15,15 @@ public class EstadoService {
     EstadoRepository repository;
 
     @Autowired
-    private PaisConverter paisConverter;
+    private PaisService paisService;
 
     public List<Estado> listar(){
         return repository.findAll().stream().toList();
     }
 
     public void salvar(Estado estado){
-
         estado.setNome(estado.getNome());
-        estado.setPais(paisConverter.converterNome(estado.getNome()));
+        estado.setPais(paisService.retornarIdPais(estado.getPais().getNome()));
         repository.save(estado);
     }
 
@@ -36,4 +35,5 @@ public class EstadoService {
     public void deletar(Long id){
         repository.deleteById(id);
     }
+
 }
