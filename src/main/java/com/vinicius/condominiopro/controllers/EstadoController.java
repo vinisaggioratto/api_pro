@@ -26,6 +26,8 @@ public class EstadoController {
 	@Autowired
 	private EstadoService service;
 
+	@Autowired
+	private PaisService paisService;
 
 
 	@PostMapping
@@ -50,7 +52,7 @@ public class EstadoController {
 		if (estadoExistente.isPresent()) {
 			Estado estado = estadoExistente.get();
 			estado.setNome(dados.getNome());
-			estado.setPais(dados.getPais());
+			estado.setPais(paisService.retornarIdPais(estado.getPais().getNome()));
 
 			service.salvar(estado);
 			return ResponseEntity.ok("Estado atualizado com sucesso!");
