@@ -32,6 +32,11 @@ public class EstadoService {
         return repository.findById(id).orElse(null);
     }
 
+    public Estado retornarIdEstado(String estadoNome) {
+        Estado estado = repository.findByNome(estadoNome);
+        return estado;
+    }
+
     public void deletar(Long id){
         repository.deleteById(id);
     }

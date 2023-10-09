@@ -33,8 +33,6 @@ public class EstadoController {
 	@PostMapping
 	@Transactional
 	public void cadastrar(@RequestBody @Valid Estado estado) {
-
-
 		service.salvar(estado);
 	}
 

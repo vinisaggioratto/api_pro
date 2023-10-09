@@ -7,7 +7,7 @@ public record ListarTodasCidades(
 		) {
 	
 	public ListarTodasCidades(Cidade cidade) {
-		this(cidade.getCidade_id(), cidade.getCidade_nome(), cidade.getEstado().getNome());
+		this(cidade.getCidade_id(), cidade.getNome(), cidade.getEstado().getNome());
 	}
 
 }
