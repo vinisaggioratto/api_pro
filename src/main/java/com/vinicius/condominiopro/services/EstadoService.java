@@ -15,7 +15,7 @@ public class EstadoService {
     EstadoRepository repository;
 
     @Autowired
-    private PaisService paisService;
+    PaisService paisService;
 
     public List<Estado> listar(){
         return repository.findAll().stream().toList();

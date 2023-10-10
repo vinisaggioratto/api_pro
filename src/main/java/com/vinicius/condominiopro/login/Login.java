@@ -10,24 +10,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "Login")
 @Table(name = "login")
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "login_id")
 public class Login {
-	
+	public Login() {
+	}
 
+	public Login(long login_id) {
+		this.login_id = login_id;
+	}
 
-	public Login(DadosCadastrarLogin dados) {
-		super();
-		this.usuario = dados.usuario();
-		this.senha = dados.senha();
-		this.condomino = dados.condomino();
+	public Login(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public Login(long login_id, String usuario, String senha, Condomino condomino) {
+		this.login_id = login_id;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.condomino = condomino;
 	}
 
 	@Id
@@ -41,40 +47,4 @@ public class Login {
 	@ManyToOne
 	@JoinColumn(name = "condomino_id")
     private Condomino condomino;
-	
-	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-
-	public long getLogin_id() {
-		return login_id;
 	}
-
-	public void setLogin_id(Integer login_id) {
-		this.login_id = login_id;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public Condomino getCondomino() {
-		return condomino;
-	}
-
-	public void setCondomino(Condomino condomino) {
-		this.condomino = condomino;
-	}
-	
-
-}

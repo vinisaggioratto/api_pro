@@ -12,28 +12,29 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "Condomino")
 @Table(name = "condomino")
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "condomino_id")
 public class Condomino {
 
-	
+	public Condomino() {
+	}
 
 	public Condomino(long condomino_id) {
 		super();
 		this.condomino_id = condomino_id;
 	}
 
+	public Condomino(String nome) {
+		this.nome = nome;
+	}
 
-
-	public Condomino(DadosCadastrarCondomino dados) {
-		super();
-		this.nome = dados.nome();
-		this.cpf = dados.cpf();
-		this.rg = dados.rg();
-		this.proprietario = dados.proprietario();
-		this.telefone_celular = dados.telefone_celular();
-		this.morador = dados.morador();
+	public Condomino(long condomino_id, String nome, String cpf, String rg, String proprietario, String telefone_celular, String morador) {
+		this.condomino_id = condomino_id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.proprietario = proprietario;
+		this.telefone_celular = telefone_celular;
+		this.morador = morador;
 	}
 
 	@Id

@@ -29,13 +29,6 @@ public class Cidade {
 	}
 
 
-
-	public Cidade(DadosCadastrarCidade dados) {
-		super();
-		this.nome = dados.cidade_nome();
-		this.estado = dados.estado();
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

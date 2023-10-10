@@ -3,7 +3,6 @@ package com.vinicius.condominiopro.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.vinicius.condominiopro.estado.Estado;
 import com.vinicius.condominiopro.services.CidadeService;
 import com.vinicius.condominiopro.services.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.vinicius.condominiopro.cidade.Cidade;
-import com.vinicius.condominiopro.cidade.DadosCadastrarCidade;
-import com.vinicius.condominiopro.cidade.ListarTodasCidades;
 import com.vinicius.condominiopro.repository.CidadeRepository;
 
 import jakarta.transaction.Transactional;
