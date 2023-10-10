@@ -53,7 +53,7 @@ public class CidadeController {
 		if (cidadeExistente.isPresent()) {
 			Cidade cidade = cidadeExistente.get();
 			cidade.setNome(dados.getNome());
-			cidade.setEstado(estadoService.retornarIdEstado(cidade.getEstado().getNome()));
+			cidade.setEstado(estadoService.retornarIdEstado(dados.getEstado().getNome()));
 
 			service.salvar(cidade);
 			return ResponseEntity.ok("Cidade atualizado com sucesso!");

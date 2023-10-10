@@ -14,12 +14,27 @@ import lombok.*;
 
 @Entity(name = "Estado")
 @Table(name = "estado")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "estado_id")
 public class Estado {
+
+	public Estado() {
+	}
+
+	public Estado(Long estado_id) {
+		this.estado_id = estado_id;
+	}
+
+	public Estado(String nome) {
+		this.nome = nome;
+	}
+
+	public Estado(Long estado_id, String nome, Pais pais) {
+		this.estado_id = estado_id;
+		this.nome = nome;
+		this.pais = pais;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
