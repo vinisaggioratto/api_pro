@@ -50,7 +50,7 @@ public class EstadoController {
 		if (estadoExistente.isPresent()) {
 			Estado estado = estadoExistente.get();
 			estado.setNome(dados.getNome());
-			estado.setPais(paisService.retornarIdPais(estado.getPais().getNome()));
+			estado.setPais(paisService.retornarIdPais(dados.getPais().getNome()));
 
 			service.salvar(estado);
 			return ResponseEntity.ok("Estado atualizado com sucesso!");
