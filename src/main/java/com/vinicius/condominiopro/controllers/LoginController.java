@@ -33,7 +33,7 @@ public class LoginController {
 	@PostMapping
 	@Transactional
 	public void cadastrar(@RequestBody @Valid Login dados) {
-		repository.save(dados);
+		service.salvar(dados);
 	}
 	
 	@GetMapping
