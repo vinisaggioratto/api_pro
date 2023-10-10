@@ -14,7 +14,7 @@ import lombok.*;
 
 @Entity(name = "Cidade")
 @Table(name = "cidade")
-@AllArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "cidade_id")
@@ -28,6 +28,15 @@ public class Cidade {
 		this.cidade_id = cidade_id;
 	}
 
+	public Cidade(String nome) {
+		this.nome = nome;
+	}
+
+	public Cidade(long cidade_id, String nome, Estado estado) {
+		this.cidade_id = cidade_id;
+		this.nome = nome;
+		this.estado = estado;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -15,42 +15,45 @@ import lombok.*;
 
 @Entity(name = "Fornecedor")
 @Table(name = "fornecedor")
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "fornecedor_id")
 public class Fornecedor {
 
-	public Fornecedor(long fornecedor_id) {
+	public Fornecedor() {
+	}
+	public Fornecedor(Long fornecedor_id) {
 		super();
 		this.fornecedor_id = fornecedor_id;
 	}
+	public Fornecedor(String nome) {
 
+		this.nome = nome;
+	}
 
-
-	public Fornecedor(DadosCadastrarFornecedor dados) {
-		super();
-		this.nome = dados.nome();
-		this.cpfCnpj = dados.cpfCnpj();
-		this.telefone_celular = dados.telefone_celular();
-		this.especialidade = dados.especialidade();
-		this.rua = dados.rua();
-		this.bairro = dados.bairro();
-		this.numero = dados.numero();
-		this.cidade = dados.cidade();
-		this.estado = dados.estado();
+	public Fornecedor(Long fornecedor_id, String nome, String cpf_cnpj, String telefone_celular, String especialidade, String rua, String bairro, int numero, Cidade cidade, Estado estado) {
+		this.fornecedor_id = fornecedor_id;
+		this.nome = nome;
+		this.cpf_cnpj = cpf_cnpj;
+		this.telefone_celular = telefone_celular;
+		this.especialidade = especialidade;
+		this.rua = rua;
+		this.bairro = bairro;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.estado = estado;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long fornecedor_id;
+    private Long fornecedor_id;
 	
 	private String nome;
-	
-	@Column(name = "cpf_cnpj")
-    private String cpfCnpj;
+
+    private String cpf_cnpj;
 	
     private String telefone_celular;
     private String especialidade;
