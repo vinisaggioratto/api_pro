@@ -18,6 +18,10 @@ public class TipoDependente {
 	public TipoDependente() {
 	}
 
+	public TipoDependente(String descricao) {
+		this.descricao = descricao;
+	}
+
 	public TipoDependente(Long tipoDepend_id) {
 		this.tipoDepend_id = tipoDepend_id;
 	}

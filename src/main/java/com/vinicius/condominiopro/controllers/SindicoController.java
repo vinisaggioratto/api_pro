@@ -46,6 +46,7 @@ public class SindicoController {
 	
 	@GetMapping
 	public List<Sindico> listar(){
+
 		return repository.findAll().stream().toList();
 	}
 
