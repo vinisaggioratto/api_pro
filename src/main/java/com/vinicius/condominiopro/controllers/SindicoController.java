@@ -1,17 +1,17 @@
 package com.vinicius.condominiopro.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.vinicius.condominiopro.fornecedor.Fornecedor;
+import com.vinicius.condominiopro.services.CondominoService;
+import com.vinicius.condominiopro.services.SindicoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.vinicius.condominiopro.repository.SindicoRepository;
-import com.vinicius.condominiopro.sindico.DadosCadastrarSindico;
-import com.vinicius.condominiopro.sindico.ListarTodosSindicos;
 import com.vinicius.condominiopro.sindico.Sindico;
 
 import jakarta.transaction.Transactional;
@@ -19,19 +19,60 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/sindico")
+@CrossOrigin(origins = "*")
 public class SindicoController {
 
 	@Autowired
 	private SindicoRepository repository;
-	
+
+	@Autowired
+	private SindicoService service;
+
+	@Autowired
+	private CondominoService condominoService;
+
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastrarSindico dados) {
-		repository.save(new Sindico(dados));
+	public void cadastrar(@RequestBody @Valid Sindico dados) {
+		dados.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
+		System.out.println(dados.getSindico_id());
+		System.out.println(dados.getData_inicial());
+		System.out.println(dados.getData_final_prevista());
+		System.out.println(dados.getData_final());
+		System.out.println(dados.getAtivo());
+		System.out.println(dados.getCondomino().getNome());
+		service.salvar(dados);
 	}
 	
 	@GetMapping
-	public List<ListarTodosSindicos> listar(){
-		return repository.findAll().stream().map(ListarTodosSindicos::new).toList();
+	public List<Sindico> listar(){
+		return repository.findAll().stream().toList();
+	}
+
+	@PutMapping("/{id}")
+	@Transactional
+	public ResponseEntity<String> atualizar(@Valid @RequestBody	Sindico dados, @PathVariable Long id) {
+
+		Optional<Sindico> sindicoExistente = repository.findById(id);
+		if (sindicoExistente.isPresent()) {
+			Sindico sindico = sindicoExistente.get();
+
+			dados.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
+			sindico.setData_inicial(dados.getData_inicial());
+			sindico.setData_final_prevista(dados.getData_final_prevista());
+			sindico.setData_final(dados.getData_final());
+			sindico.setAtivo(dados.getAtivo());
+
+			service.salvar(sindico);
+			return ResponseEntity.ok("Síndico atualizado com sucesso!");
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+	@DeleteMapping("/{id}")
+	@Transactional
+	public void excluir(@PathVariable Long id) {
+		service.deletar(id);
 	}
 }

@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vinicius.condominiopro.aviso.Aviso;
-import com.vinicius.condominiopro.aviso.DadosCadastrarAviso;
-import com.vinicius.condominiopro.aviso.ListarTodosAvisos;
 import com.vinicius.condominiopro.repository.AvisoRepository;
 
 import jakarta.transaction.Transactional;
@@ -27,12 +25,12 @@ public class AvisoController {
 	
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastrarAviso dados) {
-		repository.save(new Aviso(dados));
+	public void cadastrar(@RequestBody @Valid Aviso dados) {
+		repository.save(dados);
 	}
 	
 	@GetMapping
-	public List<ListarTodosAvisos> listar(){
-		return repository.findAll().stream().map(ListarTodosAvisos::new).toList();
+	public List<Aviso> listar(){
+		return repository.findAll().stream().toList();
 	}
 }

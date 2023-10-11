@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vinicius.condominiopro.ocorrencia.DadosCadastrarOcorrencia;
-import com.vinicius.condominiopro.ocorrencia.ListarTodasOcorrencias;
 import com.vinicius.condominiopro.ocorrencia.Ocorrencia;
 import com.vinicius.condominiopro.repository.OcorrenciaRepository;
 
@@ -26,13 +24,13 @@ public class OcorrenciaController {
 	
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastrarOcorrencia dados) {
-		repository.save(new Ocorrencia(dados));
+	public void cadastrar(@RequestBody @Valid Ocorrencia dados) {
+		repository.save(dados);
 	}
 	
 	@GetMapping
-	public List<ListarTodasOcorrencias> listar(){
-		return repository.findAll().stream().map(ListarTodasOcorrencias::new).toList();
+	public List<Ocorrencia> listar(){
+		return repository.findAll().stream().toList();
 	}
 	
 }

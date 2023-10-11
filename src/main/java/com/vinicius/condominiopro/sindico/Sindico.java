@@ -12,17 +12,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "Sindico")
 @Table(name = "sindico")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "aviso_id")
 public class Sindico {
 
+	public Sindico() {
+	}
+
+	public Sindico(Long sindico_id) {
+		this.sindico_id = sindico_id;
+	}
+
+	public Sindico(Condomino condomino) {
+		this.condomino = condomino;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

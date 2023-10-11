@@ -37,6 +37,7 @@ public class FornecedorController {
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody @Valid Fornecedor dados) {
+
         service.salvar(dados);
     }
 

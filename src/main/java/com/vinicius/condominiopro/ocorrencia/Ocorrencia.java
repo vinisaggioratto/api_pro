@@ -24,17 +24,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "ocorrencia_id")
 public class Ocorrencia {
 
-	
-
-	public Ocorrencia(DadosCadastrarOcorrencia dados) {
-		super();
-		this.ocorrencia_nome = dados.ocorrencia_nome();
-		this.ocorrencia_descricao = dados.ocorrencia_descricao();
-		this.data_ocorrencia = dados.data_ocorrencia();
-		this.sindico = dados.sindico();
-		this.condomino = dados.condomino();
-	}
-
 
 
 	@Id
