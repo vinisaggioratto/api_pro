@@ -24,26 +24,10 @@ import lombok.NoArgsConstructor;
 public class Sindico {
 
 
-	public Sindico(long sindico_id) {
-		super();
-		this.sindico_id = sindico_id;
-	}
-	
-	public Sindico(DadosCadastrarSindico dados) {
-		super();
-		this.data_inicial = dados.data_inicial();
-		this.data_final_prevista = dados.data_final_prevista();
-		this.data_final = dados.data_final();
-		this.condomino = dados.condomino();
-		this.ativo = dados.ativo();
-	}
-
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long sindico_id;
+	private Long sindico_id;
 
 	private Date data_inicial;
 	private Date data_final_prevista;
@@ -54,55 +38,5 @@ public class Sindico {
 	private Condomino condomino;
 
 	private String ativo;
-
-	// GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-
-	public long getSindico_id() {
-		return sindico_id;
-	}
-
-	public void setSindico_id(Integer sindico_id) {
-		this.sindico_id = sindico_id;
-	}
-
-	public Date getData_inicial() {
-		return data_inicial;
-	}
-
-	public void setData_inicial(Date data_inicial) {
-		this.data_inicial = data_inicial;
-	}
-
-	public Date getData_final_prevista() {
-		return data_final_prevista;
-	}
-
-	public void setData_final_prevista(Date data_final_prevista) {
-		this.data_final_prevista = data_final_prevista;
-	}
-
-	public Date getData_final() {
-		return data_final;
-	}
-
-	public void setData_final(Date data_final) {
-		this.data_final = data_final;
-	}
-
-	public Condomino getCondomino() {
-		return condomino;
-	}
-
-	public void setCondomino(Condomino condomino) {
-		this.condomino = condomino;
-	}
-
-	public String getAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(String ativo) {
-		this.ativo = ativo;
-	}
 
 }
