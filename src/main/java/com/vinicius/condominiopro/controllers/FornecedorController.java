@@ -54,15 +54,16 @@ public class FornecedorController {
         if (fornecedorExistente.isPresent()) {
             Fornecedor fornecedor = fornecedorExistente.get();
 
-            fornecedor.setNome(dados.getNome());
-            fornecedor.setCpf_cnpj(dados.getCpf_cnpj());
-            fornecedor.setTelefone_celular(dados.getTelefone_celular());
-            fornecedor.setEspecialidade(dados.getEspecialidade());
-            fornecedor.setRua(dados.getRua());
             fornecedor.setBairro(dados.getBairro());
+            fornecedor.setCidade(cidadeService.retornarIdCidade(dados.getCidade().getNome()));
+            fornecedor.setCpf_cnpj(dados.getCpf_cnpj());
+            fornecedor.setEspecialidade(dados.getEspecialidade());
+            fornecedor.setEstado(estadoService.retornarIdEstado(dados.getEstado().getNome()));
+            fornecedor.setNome(dados.getNome());
             fornecedor.setNumero(dados.getNumero());
-            fornecedor.setCidade(cidadeService.retornarIdCidade(fornecedor.getCidade().getNome()));
-            fornecedor.setEstado(estadoService.retornarIdEstado(fornecedor.getEstado().getNome()));
+            fornecedor.setRua(dados.getRua());
+            fornecedor.setTelefone_celular(dados.getTelefone_celular());
+
             service.salvar(fornecedor);
             return ResponseEntity.ok("Fornecedor atualizado com sucesso!");
         } else {

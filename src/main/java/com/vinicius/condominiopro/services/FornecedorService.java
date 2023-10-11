@@ -24,15 +24,15 @@ public class FornecedorService {
     }
 
     public void salvar(Fornecedor fornecedor){
-        fornecedor.setNome(fornecedor.getNome());
-        fornecedor.setCpf_cnpj(fornecedor.getCpf_cnpj());
-        fornecedor.setTelefone_celular(fornecedor.getTelefone_celular());
-        fornecedor.setEspecialidade(fornecedor.getEspecialidade());
-        fornecedor.setRua(fornecedor.getRua());
         fornecedor.setBairro(fornecedor.getBairro());
-        fornecedor.setNumero(fornecedor.getNumero());
         fornecedor.setCidade(cidadeService.retornarIdCidade(fornecedor.getCidade().getNome()));
+        fornecedor.setCpf_cnpj(fornecedor.getCpf_cnpj());
+        fornecedor.setEspecialidade(fornecedor.getEspecialidade());
         fornecedor.setEstado(estadoService.retornarIdEstado(fornecedor.getEstado().getNome()));
+        fornecedor.setNome(fornecedor.getNome());
+        fornecedor.setNumero(fornecedor.getNumero());
+        fornecedor.setRua(fornecedor.getRua());
+        fornecedor.setTelefone_celular(fornecedor.getTelefone_celular());
         repository.save(fornecedor);
     }
 

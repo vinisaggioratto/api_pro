@@ -33,7 +33,8 @@ public class Fornecedor {
 		this.nome = nome;
 	}
 
-	public Fornecedor(Long fornecedor_id, String nome, String cpf_cnpj, String telefone_celular, String especialidade, String rua, String bairro, int numero, Cidade cidade, Estado estado) {
+	public Fornecedor(Long fornecedor_id, String nome, String cpf_cnpj, String telefone_celular, String especialidade,
+					  String rua, String bairro, int numero, Cidade cidade, Estado estado) {
 		this.fornecedor_id = fornecedor_id;
 		this.nome = nome;
 		this.cpf_cnpj = cpf_cnpj;
@@ -54,8 +55,7 @@ public class Fornecedor {
 	private String nome;
 
     private String cpf_cnpj;
-	
-    private String telefone_celular;
+	private String telefone_celular;
     private String especialidade;
     private String rua;
     private String bairro;
