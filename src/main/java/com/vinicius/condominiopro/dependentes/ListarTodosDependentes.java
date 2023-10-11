@@ -14,7 +14,7 @@ public record ListarTodosDependentes(
 	public ListarTodosDependentes (Dependente dependente) {
 		this(dependente.getDependente_id(), dependente.getNome(), dependente.getCpf(), dependente.getRg(),
 				dependente.getTelefone_celular(), dependente.getMorador(),
-				dependente.getTipoDependente().getTipoDepend_descricao(),
+				dependente.getTipoDependente().getDescricao(),
 				dependente.getCondomino().getNome());
 	}
 

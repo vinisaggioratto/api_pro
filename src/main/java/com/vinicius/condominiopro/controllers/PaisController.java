@@ -28,6 +28,7 @@ public class PaisController {
 	@PostMapping
 	@Transactional
 	public void cadastrar(@RequestBody @Valid Pais dados) {
+
 		service.salvar(dados);
 	}
 

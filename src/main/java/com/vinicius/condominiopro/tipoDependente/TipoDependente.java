@@ -6,55 +6,30 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "TipoDependente")
 @Table(name = "tipo_dependente")
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "tipoDepend_id")
 public class TipoDependente {
 
-	
+	public TipoDependente() {
+	}
 
-	public TipoDependente(long tipoDepend_id) {
-		super();
+	public TipoDependente(Long tipoDepend_id) {
 		this.tipoDepend_id = tipoDepend_id;
 	}
 
-
-
-	public TipoDependente(DadosCadastrarTipoDependente dados) {
-		super();
-		this.tipoDepend_descricao = dados.tipoDepend_descricao();
+	public TipoDependente(Long tipoDepend_id, String descricao) {
+		this.tipoDepend_id = tipoDepend_id;
+		this.descricao = descricao;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long tipoDepend_id;
-
-	@Column(name = "descricao")
-	private String tipoDepend_descricao;
-
-	// GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-
-	public long getTipoDepend_id() {
-		return tipoDepend_id;
-	}
-
-	public void setTipoDepend_id(Integer tipoDepend_id) {
-		this.tipoDepend_id = tipoDepend_id;
-	}
-
-	public String getTipoDepend_descricao() {
-		return tipoDepend_descricao;
-	}
-
-	public void setTipoDepend_descricao(String tipoDepend_descricao) {
-		this.tipoDepend_descricao = tipoDepend_descricao;
-	}
-
+	private Long tipoDepend_id;
+	private String descricao;
 }
