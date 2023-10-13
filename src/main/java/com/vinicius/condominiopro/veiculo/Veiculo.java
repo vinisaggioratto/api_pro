@@ -16,20 +16,17 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "Veiculo")
 @Table(name = "veiculos")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "veiculo_id")
 public class Veiculo {
 
 
-	public Veiculo(DadosCadastrarVeiculo dados) {
-		super();
-		this.placa = dados.placa();
-		this.marca = dados.marca();
-		this.cor = dados.cor();
-		this.ativo = dados.ativo();
-		this.modelo = dados.modelo();
-		this.condomino = dados.condomino();
+	public Veiculo() {
+	}
+
+	public Veiculo(long veiculo_id) {
+		this.veiculo_id = veiculo_id;
 	}
 
 	@Id

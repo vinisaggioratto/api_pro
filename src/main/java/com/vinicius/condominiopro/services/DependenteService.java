@@ -18,6 +18,7 @@ public class DependenteService {
     private TipoDependenteService tipoDependenteService;
 
     public List<Dependente> listar(){
+
         return repository.findAll().stream().toList();
     }
 
