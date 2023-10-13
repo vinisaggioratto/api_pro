@@ -49,15 +49,16 @@ public class DependenteController {
     @Transactional
     public ResponseEntity<String> atualizar(@Valid @RequestBody Dependente dados, @PathVariable Long id) {
 
-        Optional<Dependente> dependenteExistente = repository.findById(id);
-        if (dependenteExistente.isPresent()) {
-            Dependente dependente = dependenteExistente.get();
-            dependente.setNome(dados.getNome());
-            dependente.setTelefone_celular(dados.getTelefone_celular());
-            dependente.setMorador(dados.getMorador());
-            dados.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
-            dados.setTipoDependente(tipoDependenteService.retornarIdTipoDependente(dados.getTipoDependente().getDescricao()));
-            service.salvar(dados);
+        Dependente dependenteExistente = repository.findByCpf(dados.getCpf());
+
+        if (dependenteExistente != null) {
+            dependenteExistente.setNome(dados.getNome());
+            dependenteExistente.setRg(dados.getRg());
+            dependenteExistente.setTelefone_celular(dados.getTelefone_celular());
+            dependenteExistente.setMorador(dados.getMorador());
+            dependenteExistente.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
+            dependenteExistente.setTipoDependente(tipoDependenteService.retornarIdTipoDependente(dados.getTipoDependente().getDescricao()));
+            service.atualizar(dependenteExistente);
             return ResponseEntity.ok("Dependente atualizado com sucesso!");
         } else {
             return ResponseEntity.notFound().build();

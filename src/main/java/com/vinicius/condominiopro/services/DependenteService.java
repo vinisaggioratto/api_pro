@@ -34,6 +34,18 @@ public class DependenteService {
         repository.save(dependente);
     }
 
+    public void atualizar(Dependente dependente){
+        dependente.setNome(dependente.getNome());
+        dependente.setRg(dependente.getRg());
+        dependente.setTelefone_celular(dependente.getTelefone_celular());
+        dependente.setMorador(dependente.getMorador());
+        dependente.setTipoDependente(tipoDependenteService.retornarIdTipoDependente(
+                dependente.getTipoDependente().getDescricao()));
+        dependente.setCondomino(condominoService.retornarIdCondomino(dependente.getCondomino().getNome()));
+
+        repository.save(dependente);
+    }
+
     public Dependente buscarPorId(Long id){
 
         return repository.findById(id).orElse(null);
