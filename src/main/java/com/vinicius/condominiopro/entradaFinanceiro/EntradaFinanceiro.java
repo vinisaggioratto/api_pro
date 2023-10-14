@@ -16,21 +16,20 @@ import lombok.*;
 
 @Entity(name = "EntradaFinanceiro")
 @Table(name = "entrada_financeiro")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "recebCond_id")
 public class EntradaFinanceiro {
 
-	public EntradaFinanceiro(DadosCadastrarEntradaFinanceiro dados) {
-		super();
-		this.data_operacao = dados.data_operacao();
-		this.condomino = dados.condomino();
-		this.valor = dados.valor();
-		this.parcelamento = dados.parcelamento();
-		this.recebCond_descricao = dados.recebCond_descricao();
+	public EntradaFinanceiro() {
 	}
+
+	public EntradaFinanceiro(long recebCond_id) {
+		this.recebCond_id = recebCond_id;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -47,7 +46,5 @@ public class EntradaFinanceiro {
     private String parcelamento;
     
 	@Column(name = "descricao")
-    private String recebCond_descricao;
-	
-
+    private String descricao;
 }
