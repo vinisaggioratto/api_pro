@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vinicius.condominiopro.manutencao.DadosCadastrarManutencao;
-import com.vinicius.condominiopro.manutencao.ListarTodasManutencoes;
 import com.vinicius.condominiopro.manutencao.Manutencao;
 import com.vinicius.condominiopro.repository.ManutencaoRepository;
 
