@@ -6,4 +6,5 @@ import com.vinicius.condominiopro.saidaFinanceiro.SaidaFinanceiro;
 
 public interface SaidaFinanceiroRepository extends JpaRepository<SaidaFinanceiro, Long>{
 
+
 }

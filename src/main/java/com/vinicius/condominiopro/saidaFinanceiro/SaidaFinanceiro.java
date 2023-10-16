@@ -12,32 +12,39 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "SaidaFinanceiro")
 @Table(name = "saidas_financeiro")
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "saidaPag_id")
 public class SaidaFinanceiro {
-	
 
-	public SaidaFinanceiro(DadosCadastrarSaidaFinanceiro dados) {
-		super();
-		this.data_operacao = dados.data_operacao();
-		this.fornecedor = dados.fornecedor();
-		this.nota_fiscal = dados.nota_fiscal();
-		this.valor = dados.valor();
-		this.parcelamento = dados.parcelamento();
-		this.saidaPag_descricao = dados.saidaPag_descricao();
-	}
+    public SaidaFinanceiro() {
+    }
 
-	@Id
+    public SaidaFinanceiro(long saidaPag_id) {
+        this.saidaPag_id = saidaPag_id;
+    }
+
+    public SaidaFinanceiro(Long saidaPag_id, Date data_operacao, Fornecedor fornecedor, Integer nota_fiscal,
+                           double valor, String parcelamento, String descricao) {
+        this.saidaPag_id = saidaPag_id;
+        this.data_operacao = data_operacao;
+        this.fornecedor = fornecedor;
+        this.nota_fiscal = nota_fiscal;
+        this.valor = valor;
+        this.parcelamento = parcelamento;
+        this.descricao = descricao;
+    }
+
+    @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long saidaPag_id;
+    private Long saidaPag_id;
 	
 	
     private Date data_operacao;
@@ -51,65 +58,6 @@ public class SaidaFinanceiro {
     private String parcelamento; //S/N
     
 	@Column(name = "descricao")
-    private String saidaPag_descricao;
-	
-	
-	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
+    private String descricao;
 
-	public long getSaidaPag_id() {
-		return saidaPag_id;
-	}
-
-	public void setSaidaPag_id(Integer saidaPag_id) {
-		this.saidaPag_id = saidaPag_id;
-	}
-
-	public Date getData_operacao() {
-		return data_operacao;
-	}
-
-	public void setData_operacao(Date data_operacao) {
-		this.data_operacao = data_operacao;
-	}
-
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
-	public Integer getNota_fiscal() {
-		return nota_fiscal;
-	}
-
-	public void setNota_fiscal(Integer nota_fiscal) {
-		this.nota_fiscal = nota_fiscal;
-	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
-
-	public String getParcelamento() {
-		return parcelamento;
-	}
-
-	public void setParcelamento(String parcelamento) {
-		this.parcelamento = parcelamento;
-	}
-
-	public String getSaidaPag_descricao() {
-		return saidaPag_descricao;
-	}
-
-	public void setSaidaPag_descricao(String saidaPag_descricao) {
-		this.saidaPag_descricao = saidaPag_descricao;
-	}
-	
 }

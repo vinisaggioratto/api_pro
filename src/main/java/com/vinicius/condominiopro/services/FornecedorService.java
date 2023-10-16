@@ -43,6 +43,7 @@ public class FornecedorService {
 
     public Fornecedor retornarIdFornecedor(String fornecedorNome) {
         Fornecedor fornecedor = repository.findByNome(fornecedorNome);
+        System.out.println("Fornecedor encontrado: " + fornecedor.getNome());
         return fornecedor;
     }
 
