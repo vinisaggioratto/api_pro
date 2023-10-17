@@ -18,19 +18,30 @@ public class Condomino {
 	public Condomino() {
 	}
 
-	public Condomino(Long condomino_id) {
+	public Condomino(Long id) {
 		super();
-		this.condomino_id = condomino_id;
+		this.id = id;
 	}
 
 	public Condomino(String nome) {
 		this.nome = nome;
 	}
 
+	public Condomino(Long id, String nome, String cpf, String rg, String proprietario, String telefone_celular,
+					 String morador) {
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.proprietario = proprietario;
+		this.telefone_celular = telefone_celular;
+		this.morador = morador;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private Long condomino_id;
+    private Long id;
 	
 	private String nome;
     private String cpf;

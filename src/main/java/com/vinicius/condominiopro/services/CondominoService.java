@@ -32,6 +32,10 @@ public class CondominoService {
         return condomino;
     }
 
+//    public Integer findById(String nome){
+//        return repository.findById(nome);
+//    }
+
     public void deletar(Long id){
         repository.deleteById(id);
     }

@@ -6,4 +6,5 @@ import com.vinicius.condominiopro.sindico.Sindico;
 
 public interface SindicoRepository extends JpaRepository<Sindico, Long>{
     Sindico findByCondominoNome(String nome);
+
 }

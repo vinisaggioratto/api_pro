@@ -57,7 +57,7 @@ public class DependenteService {
         return dependente;
     }
 
-    public void deletar(Long id){
+    public void excluir(Long id){
         repository.deleteById(id);
     }
 

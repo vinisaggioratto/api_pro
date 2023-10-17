@@ -17,7 +17,7 @@ import lombok.*;
 @Entity(name = "Sindico")
 @Table(name = "sindico")
 //@NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "aviso_id")
@@ -34,19 +34,25 @@ public class Sindico {
 		this.condomino = condomino;
 	}
 
+	public Sindico(Long sindico_id, Date data_inicial, Date data_final_prevista, Date data_final,
+				   Condomino condomino, String ativo) {
+		this.sindico_id = sindico_id;
+		this.data_inicial = data_inicial;
+		this.data_final_prevista = data_final_prevista;
+		this.data_final = data_final;
+		this.condomino = condomino;
+		this.ativo = ativo;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long sindico_id;
-
 	private Date data_inicial;
 	private Date data_final_prevista;
 	private Date data_final;
-
 	@ManyToOne
 	@JoinColumn(name = "condomino_id")
 	private Condomino condomino;
-
 	private String ativo;
-
 }

@@ -68,6 +68,6 @@ public class DependenteController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id) {
-        service.deletar(id);
+        service.excluir(id);
     }
 }

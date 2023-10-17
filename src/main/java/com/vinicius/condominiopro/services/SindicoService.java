@@ -35,8 +35,9 @@ public class SindicoService {
         return repository.findById(id).orElse(null);
     }
 
-    public Sindico retornarIdSindico(String sindicoNome) {
-        Sindico sindico = repository.findByCondominoNome(sindicoNome);
+    public Sindico retornarIdSindico(String condominoNome) {
+        Sindico sindico = repository.findByCondominoNome(condominoNome);
+
         return sindico;
     }
 

@@ -12,67 +12,46 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "Aviso")
 @Table(name = "avisos")
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "aviso_id")
 public class Aviso {
-	
 
-	@Id
+    public Aviso() {
+    }
+
+    public Aviso(Long id) {
+        this.id = id;
+    }
+
+    public Aviso(Long id, String nome, String descricao, Date data_aviso, Sindico sindico) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.data_aviso = data_aviso;
+        this.sindico = sindico;
+    }
+
+    @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long aviso_id;
+    private Long id;
 	
 	@Column(name = "nome")
-    private String aviso_nome;
+    private String nome;
 	
 	@Column(name = "descricao")
-    private String aviso_descricao;
+    private String descricao;
 	
     private Date data_aviso;
     
     @ManyToOne
     @JoinColumn(name = "sindico_id")
     private Sindico sindico;
-    
-    
-  //GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-    
-	public long getAviso_id() {
-		return aviso_id;
-	}
-	public void setAviso_id(Integer aviso_id) {
-		this.aviso_id = aviso_id;
-	}
-	public String getAviso_nome() {
-		return aviso_nome;
-	}
-	public void setAviso_nome(String aviso_nome) {
-		this.aviso_nome = aviso_nome;
-	}
-	public String getAviso_descricao() {
-		return aviso_descricao;
-	}
-	public void setAviso_descricao(String aviso_descricao) {
-		this.aviso_descricao = aviso_descricao;
-	}
-	public Date getData_aviso() {
-		return data_aviso;
-	}
-	public void setData_aviso(Date data_aviso) {
-		this.data_aviso = data_aviso;
-	}
-	public Sindico getSindico() {
-		return sindico;
-	}
-	public void setSindico(Sindico sindico) {
-		this.sindico = sindico;
-	}
-
 }
