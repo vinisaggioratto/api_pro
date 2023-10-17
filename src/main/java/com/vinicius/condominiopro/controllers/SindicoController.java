@@ -35,12 +35,6 @@ public class SindicoController {
 	@Transactional
 	public void cadastrar(@RequestBody @Valid Sindico dados) {
 		dados.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
-		System.out.println(dados.getSindico_id());
-		System.out.println(dados.getData_inicial());
-		System.out.println(dados.getData_final_prevista());
-		System.out.println(dados.getData_final());
-		System.out.println(dados.getAtivo());
-		System.out.println(dados.getCondomino().getNome());
 		service.salvar(dados);
 	}
 	

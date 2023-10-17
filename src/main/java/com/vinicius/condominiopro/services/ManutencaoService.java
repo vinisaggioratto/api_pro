@@ -33,6 +33,11 @@ public class ManutencaoService {
         repository.save(manutencao);
     }
 
+    public Manutencao buscarPorId(Long id){
+
+        return repository.findById(id).orElse(null);
+    }
+
     public void deletar(Long id){
         repository.deleteById(id);
     }

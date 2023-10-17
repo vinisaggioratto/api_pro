@@ -26,7 +26,7 @@ public class Manutencao {
 	public Manutencao() {
 	}
 
-	public Manutencao(long manutencao_id) {
+	public Manutencao(Long manutencao_id) {
 		this.manutencao_id = manutencao_id;
 	}
 
