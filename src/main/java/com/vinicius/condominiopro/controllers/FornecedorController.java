@@ -40,12 +40,6 @@ public class FornecedorController {
         service.salvar(dados);
     }
 
-    @GetMapping
-    public List<Fornecedor> listar() {
-        List<Fornecedor> fornecedor = service.listar();
-        return fornecedor;
-    }
-
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<String> atualizar(@Valid @RequestBody Fornecedor dados, @PathVariable Long id) {
@@ -69,6 +63,12 @@ public class FornecedorController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping
+    public List<Fornecedor> listar() {
+        List<Fornecedor> fornecedor = service.listar();
+        return fornecedor;
     }
 
     @DeleteMapping("/{id}")

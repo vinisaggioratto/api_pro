@@ -23,10 +23,8 @@ public class OcorrenciaController {
 
 	@Autowired
 	private OcorrenciaRepository repository;
-
 	@Autowired
 	private OcorrenciaService service;
-
 	@Autowired
 	private SindicoService sindicoService;
 	@Autowired
