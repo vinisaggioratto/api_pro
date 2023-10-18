@@ -23,6 +23,10 @@ public class ItemEstoque {
 		this.id = id;
 	}
 
+	public ItemEstoque(String descricao) {
+		this.descricao = descricao;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
