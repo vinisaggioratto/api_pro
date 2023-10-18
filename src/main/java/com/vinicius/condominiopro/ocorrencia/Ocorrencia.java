@@ -13,29 +13,32 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "Ocorrencia")
 @Table(name = "ocorrencias")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "ocorrencia_id")
 public class Ocorrencia {
 
+	public Ocorrencia() {
+	}
 
+	public Ocorrencia(Long id) {
+		this.id = id;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long ocorrencia_id;
+    private Long id;
 	
-	@Column(name = "nome")
-    private String ocorrencia_nome;
+    private String nome;
 	
-	@Column(name = "descricao")
-    private String ocorrencia_descricao;
+    private String descricao;
 	
     private Date data_ocorrencia;
     
@@ -46,56 +49,5 @@ public class Ocorrencia {
 	@ManyToOne
 	@JoinColumn(name = "condomino_id")
     private Condomino condomino;
-	
-	
-	//GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
 
-	public long getOcorrencia_id() {
-		return ocorrencia_id;
-	}
-
-	public void setOcorrencia_id(Integer ocorrencia_id) {
-		this.ocorrencia_id = ocorrencia_id;
-	}
-
-	public String getOcorrencia_nome() {
-		return ocorrencia_nome;
-	}
-
-	public void setOcorrencia_nome(String ocorrencia_nome) {
-		this.ocorrencia_nome = ocorrencia_nome;
-	}
-
-	public String getOcorrencia_descricao() {
-		return ocorrencia_descricao;
-	}
-
-	public void setOcorrencia_descricao(String ocorrencia_descricao) {
-		this.ocorrencia_descricao = ocorrencia_descricao;
-	}
-
-	public Date getData_ocorrencia() {
-		return data_ocorrencia;
-	}
-
-	public void setData_ocorrencia(Date data_ocorrencia) {
-		this.data_ocorrencia = data_ocorrencia;
-	}
-
-	public Sindico getSindico() {
-		return sindico;
-	}
-
-	public void setSindico(Sindico sindico) {
-		this.sindico = sindico;
-	}
-
-	public Condomino getCondomino() {
-		return condomino;
-	}
-
-	public void setCondomino(Condomino condomino) {
-		this.condomino = condomino;
-	}
-	
 }
