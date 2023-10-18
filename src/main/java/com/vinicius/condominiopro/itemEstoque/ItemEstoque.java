@@ -6,59 +6,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "ItemEstoque")
 @Table(name = "item_estoque")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "itemEstoque_id")
+@Getter
+@Setter
 public class ItemEstoque {
-
-	
-	public ItemEstoque(long itemEstoque_id) {
-		super();
-		this.itemEstoque_id = itemEstoque_id;
+	public ItemEstoque() {
 	}
 
-
-	public ItemEstoque(DadosCadastrarItemEstoque dados) {
-		super();
-		this.itemEstoque_descricao = dados.itemEstoque_descricao();
-		this.estoque = dados.estoque();
+	public ItemEstoque(Long id) {
+		this.id = id;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long itemEstoque_id;
-	
-	@Column(name = "descricao")
-    private String itemEstoque_descricao;
+    private Long id;
+
+    private String descricao;
     private Integer estoque;
-    
-    
-  //GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-	public long getItemEstoque_id() {
-		return itemEstoque_id;
-	}
-	public void setItemEstoque_id(Integer itemEstoque_id) {
-		this.itemEstoque_id = itemEstoque_id;
-	}
-	public String getItemEstoque_descricao() {
-		return itemEstoque_descricao;
-	}
-	public void setItemEstoque_descricao(String itemEstoque_descricao) {
-		this.itemEstoque_descricao = itemEstoque_descricao;
-	}
-	public Integer getEstoque() {
-		return estoque;
-	}
-	public void setEstoque(Integer estoque) {
-		this.estoque = estoque;
-	}
-    
 
 }

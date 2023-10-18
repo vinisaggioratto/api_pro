@@ -23,13 +23,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "saidaEstoque_id")
 public class SaidaEstoque {
 
-	public SaidaEstoque(DadosCadastrarSaidaEstoque dados) {
-		super();
-		this.itemEstoque = dados.itemEstoque();
-		this.quantidade = dados.quantidade();
-		this.data_saida = dados.data_saida();
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

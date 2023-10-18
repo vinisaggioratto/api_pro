@@ -15,6 +15,7 @@ public class LicencaService {
     private LicencaRepository repository;
 
     public List<Licenca> listar(){
+
         return repository.findAll().stream().toList();
     }
 

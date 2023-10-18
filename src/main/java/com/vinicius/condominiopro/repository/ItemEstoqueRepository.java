@@ -6,4 +6,5 @@ import com.vinicius.condominiopro.itemEstoque.ItemEstoque;
 
 public interface ItemEstoqueRepository extends JpaRepository<ItemEstoque, Long>{
 
+    ItemEstoque findByDescricao(String descricao);
 }

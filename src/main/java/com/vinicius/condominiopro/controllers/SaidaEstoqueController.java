@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vinicius.condominiopro.repository.SaidaEstoqueRepository;
-import com.vinicius.condominiopro.saidaEstoque.DadosCadastrarSaidaEstoque;
-import com.vinicius.condominiopro.saidaEstoque.ListarTodasSaidaEstoque;
 import com.vinicius.condominiopro.saidaEstoque.SaidaEstoque;
 
 import jakarta.transaction.Transactional;
@@ -23,15 +21,5 @@ public class SaidaEstoqueController {
 	
 	@Autowired
 	private SaidaEstoqueRepository repository;
-	
-	@PostMapping
-	@Transactional
-	public void cadastrar(@RequestBody @Valid DadosCadastrarSaidaEstoque dados) {
-		repository.save(new SaidaEstoque(dados));
-	}
-	
-	@GetMapping
-	public List<ListarTodasSaidaEstoque> listar(){
-		return repository.findAll().stream().map(ListarTodasSaidaEstoque::new).toList();
-	}
+
 }
