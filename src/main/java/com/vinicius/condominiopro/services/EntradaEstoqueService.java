@@ -1,7 +1,6 @@
 package com.vinicius.condominiopro.services;
 
 import com.vinicius.condominiopro.entradaEstoque.EntradaEstoque;
-import com.vinicius.condominiopro.ocorrencia.Ocorrencia;
 import com.vinicius.condominiopro.repository.EntradaEstoqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +35,7 @@ public class EntradaEstoqueService {
     }
 
     public List<EntradaEstoque> listar(){
+
         return repository.findAll().stream().toList();
     }
 

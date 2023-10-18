@@ -12,21 +12,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "SaidaEstoque")
 @Table(name = "saida_estoque")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "saidaEstoque_id")
 public class SaidaEstoque {
+
+	public SaidaEstoque() {
+	}
+
+	public SaidaEstoque(Long id) {
+		this.id = id;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-    private long saidaEstoque_id;
+    private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name = "item_estoque_id")
@@ -35,32 +42,4 @@ public class SaidaEstoque {
     private Integer quantidade;
     private Date data_saida;
     
-    
-  //GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-	public long getSaidaEstoque_id() {
-		return saidaEstoque_id;
-	}
-	public void setSaidaEstoque_id(Integer saidaEstoque_id) {
-		this.saidaEstoque_id = saidaEstoque_id;
-	}
-	public ItemEstoque getItemEstoque() {
-		return itemEstoque;
-	}
-	public void setItemEstoque(ItemEstoque itemEstoque) {
-		this.itemEstoque = itemEstoque;
-	}
-	public Integer getQuantidade() {
-		return quantidade;
-	}
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
-	public Date getData_saida() {
-		return data_saida;
-	}
-	public void setData_saida(Date data_saida) {
-		this.data_saida = data_saida;
-	}
-    
-
 }
