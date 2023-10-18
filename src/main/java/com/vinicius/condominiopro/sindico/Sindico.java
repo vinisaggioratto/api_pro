@@ -30,17 +30,17 @@ public class Sindico {
 		this.sindico_id = sindico_id;
 	}
 
-	public Sindico(Condomino condomino) {
-		this.condomino = condomino;
+	public Sindico(String nome) {
+		this.nome = nome;
 	}
 
 	public Sindico(Long sindico_id, Date data_inicial, Date data_final_prevista, Date data_final,
-				   Condomino condomino, String ativo) {
+				   String nome, String ativo) {
 		this.sindico_id = sindico_id;
 		this.data_inicial = data_inicial;
 		this.data_final_prevista = data_final_prevista;
 		this.data_final = data_final;
-		this.condomino = condomino;
+		this.nome = nome;
 		this.ativo = ativo;
 	}
 
@@ -51,8 +51,6 @@ public class Sindico {
 	private Date data_inicial;
 	private Date data_final_prevista;
 	private Date data_final;
-	@ManyToOne
-	@JoinColumn(name = "condomino_id")
-	private Condomino condomino;
+	private String nome;
 	private String ativo;
 }

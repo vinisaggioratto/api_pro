@@ -16,32 +16,32 @@ public class SindicoService {
     @Autowired
     private CondominoService condominoService;
 
-    public List<Sindico> listar(){
+    public List<Sindico> listar() {
         return repository.findAll().stream().toList();
     }
 
-    public void salvar(Sindico sindico){
+    public void salvar(Sindico sindico) {
 
         sindico.setData_inicial(sindico.getData_inicial());
         sindico.setData_final_prevista(sindico.getData_final_prevista());
         sindico.setData_final(sindico.getData_final());
-        sindico.setCondomino(condominoService.retornarIdCondomino(sindico.getCondomino().getNome()));
+        sindico.setNome(sindico.getNome());
         sindico.setAtivo(sindico.getAtivo());
         repository.save(sindico);
     }
 
-    public Sindico buscarPorId(Long id){
+    public Sindico buscarPorId(Long id) {
 
         return repository.findById(id).orElse(null);
     }
 
-    public Sindico retornarIdSindico(String condominoNome) {
-        Sindico sindico = repository.findByCondominoNome(condominoNome);
-
+    public Sindico buscarPorNome(String nome) {
+        Sindico sindico = repository.findByNome(nome);
         return sindico;
     }
 
-    public void deletar(Long id){
+
+    public void deletar(Long id) {
         repository.deleteById(id);
     }
 }

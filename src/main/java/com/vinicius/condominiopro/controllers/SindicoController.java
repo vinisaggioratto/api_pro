@@ -34,7 +34,6 @@ public class SindicoController {
 	@PostMapping
 	@Transactional
 	public void cadastrar(@RequestBody @Valid Sindico dados) {
-		dados.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
 		service.salvar(dados);
 	}
 	
@@ -52,10 +51,11 @@ public class SindicoController {
 		if (sindicoExistente.isPresent()) {
 			Sindico sindico = sindicoExistente.get();
 
-			dados.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
 			sindico.setData_inicial(dados.getData_inicial());
 			sindico.setData_final_prevista(dados.getData_final_prevista());
 			sindico.setData_final(dados.getData_final());
+			sindico.setNome(dados.getNome());
+
 			sindico.setAtivo(dados.getAtivo());
 
 			service.salvar(sindico);

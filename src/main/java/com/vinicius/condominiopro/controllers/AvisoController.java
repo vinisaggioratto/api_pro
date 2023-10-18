@@ -34,20 +34,17 @@ public class AvisoController {
     private AvisoService service;
 
     @Autowired
-    private CondominoService condominoService;
-
-    @Autowired
     private SindicoService sindicoService;
 
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody @Valid Aviso dados) {
-        //repository.save(dados);
+        service.salvar(dados);
         System.out.println("ID: " + dados.getId());
         System.out.println("NOME: " + dados.getNome());
         System.out.println("DESCRIÇAO: " + dados.getDescricao());
         System.out.println("DATA: " + dados.getData_aviso());
-        System.out.println("SINDICO ID:" + dados.getSindico());
+        System.out.println("SINDICO ID:" + dados.getSindico().getNome());
     }
 
     @PutMapping("/{id}")
@@ -58,28 +55,22 @@ public class AvisoController {
         System.out.println("NOME: " + dados.getNome());
         System.out.println("DESCRIÇAO: " + dados.getDescricao());
         System.out.println("DATA: " + dados.getData_aviso());
-        //Condomino condomino = condominoService.retornarIdCondomino(dados.getSindico().getCondomino().getNome());
-        //Sindico sindico = sindicoService.retornarIdSindico(condomino.getNome());
         System.out.println("Nome condômino: " + dados.getSindico());
-        System.out.println("SINDICO ID:" + dados.getSindico().getSindico_id());
+        System.out.println("SINDICO ID:" + dados.getSindico().getNome());
 
-		return null;
-//        Optional<Aviso> avisoExistente = repository.findById(id);
-//        if (avisoExistente.isPresent()) {
-//            Aviso aviso = avisoExistente.get();
-//
-//            aviso.setNome(dados.getNome());
-//            aviso.setDescricao(dados.getDescricao());
-//            aviso.setData_aviso(dados.getData_aviso());
-//            Condomino condomino = condominoService.retornarIdCondomino(dados.getSindico().getCondomino().getNome());
-//            aviso.setSindico(sindicoService.retornarIdSindico(condomino.getNome()));
-////tem que pegar o id do condomino
-//            repository.save(aviso);
-//            //service.salvar(fornecedor);
-//            return ResponseEntity.ok("Fornecedor atualizado com sucesso!");
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
+        Optional<Aviso> avisoExistente = repository.findById(id);
+        if (avisoExistente.isPresent()) {
+            Aviso aviso = avisoExistente.get();
+
+            aviso.setNome(dados.getNome());
+            aviso.setDescricao(dados.getDescricao());
+            aviso.setData_aviso(dados.getData_aviso());
+            aviso.setSindico(sindicoService.buscarPorNome(dados.getSindico().getNome()));
+            service.salvar(aviso);
+            return ResponseEntity.ok("Aviso atualizado com sucesso!");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping
