@@ -3,7 +3,6 @@ package com.vinicius.condominiopro.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.vinicius.condominiopro.cidade.Cidade;
 import com.vinicius.condominiopro.services.CidadeService;
 import com.vinicius.condominiopro.services.EstadoService;
 import com.vinicius.condominiopro.services.FornecedorService;

@@ -13,33 +13,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "CondominoApartamento")
 @Table(name = "apartamento_condomino")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "apartamento_id")
 public class CondominoApartamento {
 
-
-	
-	public CondominoApartamento(DadosCadastrarCondominoApartamento dados) {
-		super();
-		this.condomino = dados.condomino();
-		this.apartamento = dados.apartamento();
-		this.data_entrada = dados.data_entrada();
-		this.data_saida = dados.data_saida();
+	public CondominoApartamento() {
 	}
 
-
+	public CondominoApartamento(Long id) {
+		this.id = id;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long id;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name = "condomino_id")
@@ -51,46 +46,5 @@ public class CondominoApartamento {
 
 	private Date data_entrada;
 	private Date data_saida;
-
-	// GETTER E SETTER - LOMBOK NÃO ESTÁ FUNCIONANDO
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Condomino getCondomino() {
-		return condomino;
-	}
-
-	public void setCondomino(Condomino condomino) {
-		this.condomino = condomino;
-	}
-
-	public Apartamento getApartamento() {
-		return apartamento;
-	}
-
-	public void setApartamento(Apartamento apartamento) {
-		this.apartamento = apartamento;
-	}
-
-	public Date getData_entrada() {
-		return data_entrada;
-	}
-
-	public void setData_entrada(Date data_entrada) {
-		this.data_entrada = data_entrada;
-	}
-
-	public Date getData_saida() {
-		return data_saida;
-	}
-
-	public void setData_saida(Date data_saida) {
-		this.data_saida = data_saida;
-	}
 
 }

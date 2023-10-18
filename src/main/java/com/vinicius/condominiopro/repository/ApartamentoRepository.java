@@ -6,4 +6,5 @@ import com.vinicius.condominiopro.apartamento.Apartamento;
 
 public interface ApartamentoRepository extends JpaRepository<Apartamento, Long> {
 
+    Apartamento findByNumero(Integer numero);
 }

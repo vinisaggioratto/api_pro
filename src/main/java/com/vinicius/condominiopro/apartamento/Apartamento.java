@@ -11,12 +11,23 @@ import lombok.*;
 
 @Entity(name = "Apartamento")
 @Table(name = "apartamento")
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = "apartamento_id")
 public class Apartamento {
+
+	public Apartamento() {
+	}
+
+	public Apartamento(Long apartamento_id) {
+		this.apartamento_id = apartamento_id;
+	}
+
+	public Apartamento(Integer numero) {
+		this.numero = numero;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -22,9 +22,12 @@ public class ApartamentoService {
     }
 
     public Apartamento buscarPorId(Long id){
+
         return repository.findById(id).orElse(null);
     }
-
+    public Apartamento buscarPorNumero(Integer numero){
+        return repository.findByNumero(numero);
+    }
     public void deletar(Long id){
         repository.deleteById(id);
     }
