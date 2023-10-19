@@ -3,7 +3,6 @@ package com.vinicius.condominiopro.controllers;
 import java.util.List;
 import java.util.Optional;
 
-import com.vinicius.condominiopro.cidade.Cidade;
 import com.vinicius.condominiopro.services.CondominoService;
 import com.vinicius.condominiopro.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +50,6 @@ public class LoginController {
 			Login login = loginExistente.get();
 			login.setUsuario(dados.getUsuario());
 			login.setSenha(dados.getSenha());
-			login.setCondomino(condominoService.retornarIdCondomino(dados.getCondomino().getNome()));
 
 			service.salvar(login);
 			return ResponseEntity.ok("Condômino atualizado com sucesso!");
@@ -66,3 +64,7 @@ public class LoginController {
 		service.deletar(id);
 	}
 }
+
+
+
+

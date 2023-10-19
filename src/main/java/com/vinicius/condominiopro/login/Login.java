@@ -29,11 +29,9 @@ public class Login {
 		this.usuario = usuario;
 	}
 
-	public Login(long login_id, String usuario, String senha, Condomino condomino) {
-		this.login_id = login_id;
+	public Login(String usuario, String senha) {
 		this.usuario = usuario;
 		this.senha = senha;
-		this.condomino = condomino;
 	}
 
 	@Id
@@ -43,8 +41,4 @@ public class Login {
 	
     private String usuario;
     private String senha;
-    
-	@ManyToOne
-	@JoinColumn(name = "condomino_id")
-    private Condomino condomino;
 	}

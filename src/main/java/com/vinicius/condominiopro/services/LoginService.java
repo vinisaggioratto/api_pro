@@ -1,6 +1,5 @@
 package com.vinicius.condominiopro.services;
 
-import com.vinicius.condominiopro.cidade.Cidade;
 import com.vinicius.condominiopro.login.Login;
 import com.vinicius.condominiopro.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LoginService {
+public class LoginService{
 
     @Autowired
     private LoginRepository repository;
@@ -24,7 +23,6 @@ public class LoginService {
     public void salvar(Login login){
         login.setUsuario(login.getUsuario());
         login.setSenha(login.getSenha());
-        login.setCondomino(condominoService.retornarIdCondomino(login.getCondomino().getNome()));
         repository.save(login);
     }
 
@@ -36,5 +34,4 @@ public class LoginService {
     public void deletar(Long id){
         repository.deleteById(id);
     }
-
 }
