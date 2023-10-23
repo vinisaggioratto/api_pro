@@ -1,13 +1,14 @@
-package com.vinicius.condominiopro.login;
+package com.vinicius.condominiopro.usuario;
 
-public enum LoginRole {
+public enum UsuarioRole {
 
     ADMIN("admin"),
     USER("user");
 
+
     private String role;
 
-    LoginRole(String role){
+    UsuarioRole(String role){
         this.role = role;
     }
 

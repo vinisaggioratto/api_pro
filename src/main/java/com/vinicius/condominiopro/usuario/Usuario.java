@@ -1,6 +1,4 @@
-package com.vinicius.condominiopro.login;
-
-import com.vinicius.condominiopro.condomino.Condomino;
+package com.vinicius.condominiopro.usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,31 +19,40 @@ import java.util.List;
 @Table(name = "login")
 @Getter
 @Setter
-@EqualsAndHashCode(of = "login_id")
-public class Login implements UserDetails {
-    public Login() {
+@EqualsAndHashCode(of = "id")
+public class Usuario implements UserDetails {
+
+    public Usuario(String usuario, String senha, UsuarioRole role) {
+        this.usuario = usuario;
+        this.senha = senha;
+        this.role = role;
     }
 
-    public Login(long login_id) {
-        this.login_id = login_id;
+    public Usuario() {
     }
 
-    public Login(String usuario) {
+    public Usuario(Long id) {
+        this.id = id;
+    }
+
+    public Usuario(String usuario) {
         this.usuario = usuario;
     }
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long login_id;
+    private Long id;
 
     private String usuario;
     private String senha;
-    private LoginRole role;
+    @JoinColumn
+    @Column(name = "role")
+    private UsuarioRole role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.role == LoginRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),
+        if (this.role == UsuarioRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),
                 new SimpleGrantedAuthority("ROLE_USER"));
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
