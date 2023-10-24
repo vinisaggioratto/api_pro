@@ -38,21 +38,21 @@ public class UsuarioController {
 	@GetMapping
 	public List<Usuario> listar(){
 		List<Usuario> usuario = service.listar();
-		return  usuario;
+		return usuario;
 	}
 
 	@PutMapping("/{id}")
 	@Transactional
 	public ResponseEntity<String> atualizar(@Valid @RequestBody Usuario dados, @PathVariable Long id) {
 
-		Optional<Usuario> usuarioExistente = repository.findById(id);
-		if (usuarioExistente.isPresent()) {
-			Usuario usuario = usuarioExistente.get();
-			usuario.setUsuario(dados.getUsuario());
-			usuario.setSenha(dados.getSenha());
+		Optional<Usuario> loginExistente = repository.findById(id);
+		if (loginExistente.isPresent()) {
+			Usuario usuario = loginExistente.get();
+			usuario.setLogin(dados.getLogin());
+			usuario.setPassword(dados.getPassword());
 
 			service.salvar(usuario);
-			return ResponseEntity.ok("Usuário atualizado com sucesso!");
+			return ResponseEntity.ok("Condômino atualizado com sucesso!");
 		} else {
 			return ResponseEntity.notFound().build();
 		}

@@ -1,7 +1,7 @@
 package com.vinicius.condominiopro.services;
 
-import com.vinicius.condominiopro.repository.UsuarioRepository;
 import com.vinicius.condominiopro.usuario.Usuario;
+import com.vinicius.condominiopro.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +20,14 @@ public class UsuarioService {
         return repository.findAll().stream().toList();
     }
 
-    public void salvar(Usuario login){
-        login.setUsuario(login.getUsuario());
-        login.setSenha(login.getSenha());
-        repository.save(login);
+    public void salvar(Usuario usuario){
+        usuario.setLogin(usuario.getLogin());
+        usuario.setPassword(usuario.getPassword());
+        repository.save(usuario);
     }
 
     public Usuario retornarIdLogin(String loginUsuario) {
-        Usuario usuario = (Usuario) repository.findByUsuario(loginUsuario);
+        Usuario usuario = repository.findByLogin(loginUsuario);
         return usuario;
     }
 
