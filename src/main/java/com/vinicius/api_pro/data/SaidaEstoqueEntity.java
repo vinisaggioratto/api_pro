@@ -28,7 +28,6 @@ public class SaidaEstoqueEntity {
     @JoinColumn(name = "item_estoque_id")
     private ItemEstoqueEntity itemEstoque;
 
-    @NotBlank(message = "Campo quantidade é obrigatório.")
     private Integer quantidade;
 
     private Date data_saida;

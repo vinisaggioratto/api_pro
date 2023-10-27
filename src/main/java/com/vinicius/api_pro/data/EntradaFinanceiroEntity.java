@@ -30,7 +30,6 @@ public class EntradaFinanceiroEntity {
     @JoinColumn(name = "condomino_id")
     private CondominoEntity condomino;
     
-    @NotBlank(message = "Campo valor é obrigatório.")
     private double valor;
     @NotBlank(message = "Campo parcelamento é obrigatório.")
     private String parcelamento;

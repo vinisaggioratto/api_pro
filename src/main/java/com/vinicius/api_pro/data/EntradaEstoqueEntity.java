@@ -31,10 +31,8 @@ public class EntradaEstoqueEntity {
     @NotBlank(message = "Campo nome é obrigatório.")
     private String nome;
     
-    @NotBlank(message = "Campo quantidade é obrigatório.")
     private Integer quantidade;
     
-    @NotBlank(message = "Campo valor é obrigatório.")
     private double valor_unitario;
 
     private Date data_entrada;

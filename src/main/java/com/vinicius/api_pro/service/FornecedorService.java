@@ -3,14 +3,13 @@ package com.vinicius.api_pro.service;
 
 import com.vinicius.api_pro.data.FornecedorEntity;
 import com.vinicius.api_pro.data.FornecedorRepository;
-import com.vinicius.api_pro.data.SindicoEntity;
 import com.vinicius.api_pro.exception.ResourceNotFoundException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-class FornecedorService {
+public class FornecedorService {
 
     @Autowired
     private FornecedorRepository repository;

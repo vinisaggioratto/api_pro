@@ -32,7 +32,7 @@ public class ManutencaoEntity {
     private String nome;
     @NotBlank(message = "Campo descrição é obrigatório.")
     private String descricao;
-    @NotBlank(message = "Campo valor é obrigatório.")
+
     private Double valor;
 
     private Date data_inicial;

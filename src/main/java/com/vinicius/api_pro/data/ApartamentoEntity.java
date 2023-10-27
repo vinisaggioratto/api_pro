@@ -13,14 +13,22 @@ import lombok.Data;
 @Entity
 @Table(name = "apartamento")
 public class ApartamentoEntity {
+
+    public ApartamentoEntity() {
+    }
+
+    public ApartamentoEntity(Integer numero) {
+        this.numero = numero;
+    }
+    
     
     	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-        @NotBlank(message="Campo número é obrigatório.")
+        
 	private Integer numero;
-        @NotBlank(message="Campo número é obrigatório.")
+        
 	private Integer andar;
         @NotBlank(message="Campo número é obrigatório.")
 	private String bloco;

@@ -24,7 +24,7 @@ public class SaidaFinanceiroService {
         return repository.findAll().stream().toList();
     }
 
-    public SaidaFinanceiroEntity criarSaidaFinanceiroEntity(SaidaFinanceiroEntity saidaFinanceiro) {
+    public SaidaFinanceiroEntity criarSaidaFinanceiro(SaidaFinanceiroEntity saidaFinanceiro) {
         saidaFinanceiro.setId(null);
 
         saidaFinanceiro.setData_operacao(saidaFinanceiro.getData_operacao());
@@ -38,7 +38,7 @@ public class SaidaFinanceiroService {
         return saidaFinanceiro;
     }
 
-    public SaidaFinanceiroEntity atualizarSindico(Long id, SaidaFinanceiroEntity saidaFinanceiro) {
+    public SaidaFinanceiroEntity atualizarSaidaFinanceiro(Long id, SaidaFinanceiroEntity saidaFinanceiro) {
 
         SaidaFinanceiroEntity saida = getSaidaFinanceiroId(id);
 
@@ -53,7 +53,7 @@ public class SaidaFinanceiroService {
         return saida;
     }
 
-    public void deletarSindico(Long id) {
+    public void deletarSaidaFinanceiro(Long id) {
         SaidaFinanceiroEntity saida = getSaidaFinanceiroId(id);
         repository.deleteById(saida.getId());
     }

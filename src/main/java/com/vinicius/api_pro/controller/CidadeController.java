@@ -1,13 +1,11 @@
 package com.vinicius.api_pro.controller;
 
 import com.vinicius.api_pro.data.CidadeEntity;
-import com.vinicius.api_pro.data.UsuarioEntity;
 import com.vinicius.api_pro.service.CidadeService;
 import com.vinicius.api_pro.service.EstadoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,11 +56,11 @@ public class CidadeController {
         CidadeEntity cidadeExistente = service.getCidadeId(id);
 
         if (cidadeExistente != null) {
-            CidadeEntity cid = new CidadeEntity();
-            cid.setNome(cidade.getNome());
-            cid.setEstado(estadoService.buscarPorNome(cidade.getEstado().getNome()));
 
-            var cidadeAtualizada = service.atualizarCidade(id, cidade);
+            cidadeExistente.setNome(cidade.getNome());
+            cidadeExistente.setEstado(estadoService.buscarPorNome(cidade.getEstado().getNome()));
+
+            var cidadeAtualizada = service.atualizarCidade(id, cidadeExistente);
             return new ResponseEntity<>(cidadeAtualizada, HttpStatus.OK);
         } else {
             return ResponseEntity.notFound().build();

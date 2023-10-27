@@ -16,6 +16,11 @@ public class TipoDependenteEntity {
     public TipoDependenteEntity() {
     }
 
+    public TipoDependenteEntity(String descricao) {
+        this.descricao = descricao;
+    }
+
+    
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

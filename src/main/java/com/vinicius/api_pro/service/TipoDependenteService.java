@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-class TipoDependenteService {
+public class TipoDependenteService {
 
     @Autowired
     private TipoDependenteRepository repository;

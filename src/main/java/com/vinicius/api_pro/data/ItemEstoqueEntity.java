@@ -27,6 +27,5 @@ public class ItemEstoqueEntity {
 
     @NotBlank(message="Campo descrição é obrigatório.")
     private String descricao;
-    @NotBlank(message="Campo estoque é obrigatório.")
     private Integer estoque;
 }

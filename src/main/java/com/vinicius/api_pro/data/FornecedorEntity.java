@@ -40,7 +40,6 @@ public class FornecedorEntity {
     private String rua;
     @NotBlank(message="Campo bairro é obrigatório.")
     private String bairro;
-    @NotBlank(message="Campo número é obrigatório.")
     private int numero;
 
     @ManyToOne

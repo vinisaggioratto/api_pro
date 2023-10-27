@@ -30,9 +30,8 @@ public class SaidaFinanceiroEntity {
     @JoinColumn(name = "fornecedor_id")
     private FornecedorEntity fornecedor;
 
-    @NotBlank(message = "Campo nota fiscal é obrigatório.")
     private Integer nota_fiscal;
-    @NotBlank(message = "Campo valor é obrigatório.")
+
     private double valor;
     @NotBlank(message = "Campo parcelamento é obrigatório.")
     private String parcelamento;

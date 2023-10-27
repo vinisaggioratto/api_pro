@@ -19,6 +19,12 @@ public class CondominoApartamentoEntity {
     public CondominoApartamentoEntity() {
     }
 
+    public CondominoApartamentoEntity(CondominoEntity condomino, ApartamentoEntity apartamento) {
+        this.condomino = condomino;
+        this.apartamento = apartamento;
+    }
+    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
