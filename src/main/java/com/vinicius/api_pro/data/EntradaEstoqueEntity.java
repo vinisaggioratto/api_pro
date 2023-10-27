@@ -16,6 +16,14 @@ import lombok.Data;
 @Table(name = "entrada_estoque")
 public class EntradaEstoqueEntity {
 
+    public EntradaEstoqueEntity() {
+    }
+
+    public EntradaEstoqueEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,16 +36,13 @@ public class EntradaEstoqueEntity {
     
     @NotBlank(message = "Campo valor é obrigatório.")
     private double valor_unitario;
-    
-    @NotBlank(message = "Campo data de entrada é obrigatório.")
+
     private Date data_entrada;
 
-    @NotBlank(message = "Campo item é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "item_estoque_id")
     private ItemEstoqueEntity itemEstoque;
 
-    @NotBlank(message = "Campo fornecedor é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
     private FornecedorEntity fornecedor;

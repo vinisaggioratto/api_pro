@@ -16,6 +16,14 @@ import lombok.Data;
 @Table(name = "manutencoes")
 public class ManutencaoEntity {
 
+    public ManutencaoEntity() {
+    }
+
+    public ManutencaoEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,9 +34,9 @@ public class ManutencaoEntity {
     private String descricao;
     @NotBlank(message = "Campo valor é obrigatório.")
     private Double valor;
-    @NotBlank(message = "Campo data inicial é obrigatório.")
+
     private Date data_inicial;
-    @NotBlank(message = "Campo data final é obrigatório.")
+
     private Date data_final;
 
     @ManyToOne

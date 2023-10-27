@@ -15,6 +15,10 @@ import lombok.Data;
 @Table(name = "veiculos")
 public class VeiculoEntity {
 
+    public VeiculoEntity() {
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

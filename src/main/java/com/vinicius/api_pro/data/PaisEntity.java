@@ -9,10 +9,19 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name = "Pais")
 @Table(name = "pais")
 public class PaisEntity {
 
+    public PaisEntity() {
+    }
+
+    
+    public PaisEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

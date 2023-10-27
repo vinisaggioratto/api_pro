@@ -15,6 +15,14 @@ import lombok.Data;
 @Table(name = "fornecedor")
 public class FornecedorEntity {
 
+    public FornecedorEntity() {
+    }
+
+    public FornecedorEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,12 +43,10 @@ public class FornecedorEntity {
     @NotBlank(message="Campo número é obrigatório.")
     private int numero;
 
-    @NotBlank(message="Campo cidade é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "cidade_id")
     private CidadeEntity cidade;
 
-    @NotBlank(message="Campo estado é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private EstadoEntity estado;

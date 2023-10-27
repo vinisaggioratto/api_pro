@@ -14,15 +14,23 @@ import lombok.Data;
 @Entity
 @Table(name = "sindico")
 public class SindicoEntity {
+
+    public SindicoEntity() {
+    }
+
+    public SindicoEntity(String nome) {
+        this.nome = nome;
+    }
+    
     
     	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-        @NotBlank(message="Campo data inicial é obrigatório.")
         private Date data_inicial;
-        @NotBlank(message="Campo data final prevista é obrigatório.")
+
 	private Date data_final_prevista;
+        
         private Date data_final;
         @NotBlank(message="Campo nome é obrigatório.")
 	private String nome;

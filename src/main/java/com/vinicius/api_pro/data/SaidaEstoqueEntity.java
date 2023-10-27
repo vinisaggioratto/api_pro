@@ -16,17 +16,20 @@ import lombok.Data;
 @Table(name = "saida_estoque")
 public class SaidaEstoqueEntity {
 
+    public SaidaEstoqueEntity() {
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Campo item é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "item_estoque_id")
     private ItemEstoqueEntity itemEstoque;
 
     @NotBlank(message = "Campo quantidade é obrigatório.")
     private Integer quantidade;
-    @NotBlank(message = "Campo data de saída é obrigatório.")
+
     private Date data_saida;
 }

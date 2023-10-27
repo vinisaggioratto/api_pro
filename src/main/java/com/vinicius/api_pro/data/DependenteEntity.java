@@ -16,6 +16,14 @@ import org.hibernate.validator.constraints.br.CPF;
 @Table(name = "dependentes")
 public class DependenteEntity {
 
+    public DependenteEntity() {
+    }
+
+    public DependenteEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

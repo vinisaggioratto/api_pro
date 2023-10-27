@@ -16,6 +16,10 @@ import lombok.Data;
 @Table(name = "ocorrencias")
 public class OcorrenciaEntity {
 
+    public OcorrenciaEntity() {
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,15 +28,12 @@ public class OcorrenciaEntity {
     private String nome;
     @NotBlank(message = "Campo descrição é obrigatório.")
     private String descricao;
-    @NotBlank(message = "Campo data da ocorrência é obrigatório.")
     private Date data_ocorrencia;
 
-    @NotBlank(message = "Campo síndico é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "sindico_id")
     private SindicoEntity sindico;
 
-    @NotBlank(message = "Campo condômino é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "condomino_id")
     private CondominoEntity condomino;

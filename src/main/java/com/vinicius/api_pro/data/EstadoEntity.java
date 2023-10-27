@@ -11,10 +11,17 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity(name = "estados")
 @Table(name = "estado")
 public class EstadoEntity {
 
+    public EstadoEntity() {
+    }
+
+    public EstadoEntity(String nome) {
+        this.nome = nome;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +29,6 @@ public class EstadoEntity {
     @NotBlank(message="Campo nome é obrigatório.")
     private String nome;
 
-    @NotBlank(message="Campo País é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "pais_id")
     private PaisEntity pais;

@@ -16,14 +16,16 @@ import lombok.Data;
 @Table(name = "entrada_financeiro")
 public class EntradaFinanceiroEntity {
 
+    public EntradaFinanceiroEntity() {
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Campo data de operação é obrigatório.")
     private Date data_operacao;
 
-    @NotBlank(message = "Campo condômino é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "condomino_id")
     private CondominoEntity condomino;

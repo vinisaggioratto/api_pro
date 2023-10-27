@@ -15,6 +15,13 @@ import lombok.Data;
 @Table(name = "cidade")
 public class CidadeEntity {
 
+    public CidadeEntity() {
+    }
+
+    public CidadeEntity(String nome) {
+        this.nome = nome;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +29,6 @@ public class CidadeEntity {
     @NotBlank(message = "Campo nome é obrigatório.")
     private String nome;
 
-    @NotBlank(message = "Campo estado é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private EstadoEntity estado;

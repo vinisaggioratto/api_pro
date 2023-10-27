@@ -16,18 +16,25 @@ import lombok.Data;
 @Table(name = "avisos")
 public class AvisoEntity {
 
+    public AvisoEntity() {
+    }
+
+    public AvisoEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "Campo nome é obrigatório.")
     private String nome;
-    @NotBlank(message = "Campo descrição é obrigatório.")
+
     private String descricao;
-    @NotBlank(message = "Campo data do aviso é obrigatório.")
+
     private Date data_aviso;
 
-    @NotBlank(message = "Campo síndico é obrigatório.")
     @ManyToOne
     @JoinColumn(name = "sindico_id")
     private SindicoEntity sindico;

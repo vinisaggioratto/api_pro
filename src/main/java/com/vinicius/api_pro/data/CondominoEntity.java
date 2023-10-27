@@ -14,6 +14,14 @@ import org.hibernate.validator.constraints.br.CPF;
 @Table(name = "condomino")
 public class CondominoEntity {
 
+    public CondominoEntity() {
+    }
+
+    public CondominoEntity(String nome) {
+        this.nome = nome;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

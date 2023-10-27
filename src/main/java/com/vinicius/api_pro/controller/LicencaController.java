@@ -47,14 +47,14 @@ public class LicencaController {
 
     @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity<LicencaEntity> atualizarUsuario(@PathVariable Long id, @RequestBody LicencaEntity usuario) {
+    public ResponseEntity<LicencaEntity> atualizarLicenca(@PathVariable Long id, @RequestBody LicencaEntity usuario) {
         var usuarioAtualizado = service.atualizarLicenca(id, usuario);
         return new ResponseEntity<>(usuarioAtualizado, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity deletarUsuario(@PathVariable Long id) {
+    public ResponseEntity deletarLicenca(@PathVariable Long id) {
         service.deletarLicenca(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

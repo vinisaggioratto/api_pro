@@ -13,6 +13,14 @@ import lombok.Data;
 @Table(name = "item_estoque")
 public class ItemEstoqueEntity {
 
+    public ItemEstoqueEntity() {
+    }
+
+    public ItemEstoqueEntity(String descricao) {
+        this.descricao = descricao;
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

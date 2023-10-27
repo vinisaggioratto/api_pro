@@ -13,6 +13,10 @@ import lombok.Data;
 @Table(name = "tipo_dependente")
 public class TipoDependenteEntity {
 
+    public TipoDependenteEntity() {
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

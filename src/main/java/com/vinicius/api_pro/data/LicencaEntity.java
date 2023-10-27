@@ -14,6 +14,10 @@ import lombok.Data;
 @Table(name = "licencas")
 public class LicencaEntity {
 
+    public LicencaEntity() {
+    }
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,9 +30,9 @@ public class LicencaEntity {
     private String numero;
     @NotBlank(message = "Campo emissor é obrigatório.")
     private String emissor;
-    //@NotBlank(message = "Campo data de emissão é obrigatório.")
+
     private Date data_emissao;
-    //@NotBlank(message = "Campo data de validade é obrigatório.")
+
     private Date data_validade;
     @NotBlank(message = "Campo válido é obrigatório.")
     private String valido;

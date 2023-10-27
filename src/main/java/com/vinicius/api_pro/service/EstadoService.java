@@ -32,7 +32,7 @@ public class EstadoService {
         return estado;
     }
 
-    public EstadoEntity criarSindico(EstadoEntity estado) {
+    public EstadoEntity criarEstado(EstadoEntity estado) {
         estado.setId(null);
 
         estado.setNome(estado.getNome());
