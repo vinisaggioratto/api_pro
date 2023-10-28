@@ -20,8 +20,6 @@ public class TipoDependenteEntity {
         this.descricao = descricao;
     }
 
-    
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

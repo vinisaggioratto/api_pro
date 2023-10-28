@@ -29,6 +29,5 @@ public class SaidaEstoqueEntity {
     private ItemEstoqueEntity itemEstoque;
 
     private Integer quantidade;
-
     private Date data_saida;
 }

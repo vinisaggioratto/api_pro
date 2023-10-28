@@ -1,6 +1,5 @@
 package com.vinicius.api_pro.controller;
 
-import com.vinicius.api_pro.data.FornecedorEntity;
 import com.vinicius.api_pro.data.TipoDependenteEntity;
 import com.vinicius.api_pro.service.TipoDependenteService;
 import jakarta.transaction.Transactional;

@@ -34,9 +34,7 @@ public class ManutencaoEntity {
     private String descricao;
 
     private Double valor;
-
     private Date data_inicial;
-
     private Date data_final;
 
     @ManyToOne

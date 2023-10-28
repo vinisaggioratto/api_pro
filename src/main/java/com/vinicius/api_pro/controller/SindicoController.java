@@ -1,7 +1,6 @@
 package com.vinicius.api_pro.controller;
 
 import com.vinicius.api_pro.data.SindicoEntity;
-import com.vinicius.api_pro.service.CondominoService;
 import com.vinicius.api_pro.service.SindicoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -26,8 +25,6 @@ public class SindicoController {
 
     @Autowired
     private SindicoService service;
-    @Autowired
-    private CondominoService condominoService;
 
     @GetMapping
     public ResponseEntity<List> getAllSindicos() {

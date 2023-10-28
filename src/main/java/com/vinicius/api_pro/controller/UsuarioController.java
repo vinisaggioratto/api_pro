@@ -63,7 +63,7 @@ public class UsuarioController {
     @PostMapping("/validar-login")
     public boolean getPesquisarPorLoginAndPassword(@RequestBody UsuarioEntity usuario) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        List<UsuarioEntity> usuarios = service.retornarLoginList(usuario.getLogin());
+        List<UsuarioEntity> usuarios = service.retornarUsuarioList(usuario.getLogin());
         if (usuarios.isEmpty()) {
             return false;
         } else {

@@ -20,15 +20,12 @@ public class ApartamentoEntity {
     public ApartamentoEntity(Integer numero) {
         this.numero = numero;
     }
-    
-    
+        
     	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
         
 	private Integer numero;
-        
 	private Integer andar;
         @NotBlank(message="Campo número é obrigatório.")
 	private String bloco;

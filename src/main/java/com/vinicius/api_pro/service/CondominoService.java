@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.vinicius.api_pro.service;
 
 import com.vinicius.api_pro.data.CondominoEntity;
@@ -43,7 +40,7 @@ public class CondominoService {
         return condomino;
     }
 
-    public CondominoEntity atualizarSindico(Long id, CondominoEntity condomino) {
+    public CondominoEntity atualizarCondomino(Long id, CondominoEntity condomino) {
 
         CondominoEntity cond = getCondominoId(id);
 

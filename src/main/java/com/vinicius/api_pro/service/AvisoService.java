@@ -50,7 +50,7 @@ public class AvisoService {
         return aviso;
     }
 
-    public void deletarApartamento(Long id) {
+    public void deletarAviso(Long id) {
         AvisoEntity aviso = getAvisoId(id);
         repository.deleteById(aviso.getId());
     }    

@@ -73,7 +73,7 @@ public class AvisoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity deletarAviso(@PathVariable Long id) {
-        service.deletarApartamento(id);
+        service.deletarAviso(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }    
 }

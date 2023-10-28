@@ -17,7 +17,6 @@ public class VeiculoEntity {
 
     public VeiculoEntity() {
     }
-
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

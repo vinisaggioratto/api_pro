@@ -19,7 +19,6 @@ public class ItemEstoqueEntity {
     public ItemEstoqueEntity(String descricao) {
         this.descricao = descricao;
     }
-
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -16,11 +16,9 @@ public class PaisEntity {
     public PaisEntity() {
     }
 
-    
     public PaisEntity(String nome) {
         this.nome = nome;
     }
-
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

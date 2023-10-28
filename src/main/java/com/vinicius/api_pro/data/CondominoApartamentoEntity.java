@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import java.util.Date;
 import lombok.Data;
 
@@ -38,6 +37,5 @@ public class CondominoApartamentoEntity {
     private ApartamentoEntity apartamento;
 
     private Date data_entrada;
-
     private Date data_saida;
 }

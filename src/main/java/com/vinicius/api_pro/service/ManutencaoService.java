@@ -2,7 +2,6 @@ package com.vinicius.api_pro.service;
 
 import com.vinicius.api_pro.data.ManutencaoEntity;
 import com.vinicius.api_pro.data.ManutencaoRepository;
-import com.vinicius.api_pro.data.SindicoEntity;
 import com.vinicius.api_pro.exception.ResourceNotFoundException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +42,7 @@ public class ManutencaoService {
         return manutencao;
     }
 
-    public ManutencaoEntity atualizarSindico(Long id, ManutencaoEntity manutencao) {
+    public ManutencaoEntity atualizarManutencao(Long id, ManutencaoEntity manutencao) {
 
         ManutencaoEntity man = getManutencaoId(id);
 
@@ -57,7 +56,7 @@ public class ManutencaoService {
         return man;
     }
 
-    public void deletarSindico(Long id) {
+    public void deletarManutencao(Long id) {
         ManutencaoEntity manutencao = getManutencaoId(id);
         repository.deleteById(manutencao.getId());
     }

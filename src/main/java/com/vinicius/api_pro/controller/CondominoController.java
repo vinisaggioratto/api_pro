@@ -1,6 +1,5 @@
 package com.vinicius.api_pro.controller;
 
-import com.vinicius.api_pro.data.AvisoEntity;
 import com.vinicius.api_pro.data.CondominoEntity;
 import com.vinicius.api_pro.service.CondominoService;
 import jakarta.transaction.Transactional;
@@ -62,7 +61,7 @@ public class CondominoController {
             condominoExistente.setProprietario(condomino.getProprietario());
             condominoExistente.setMorador(condomino.getMorador());
 
-            var condominoAtualizado = service.atualizarSindico(id, condominoExistente);
+            var condominoAtualizado = service.atualizarCondomino(id, condominoExistente);
             return new ResponseEntity<>(condominoAtualizado, HttpStatus.OK);
         } else {
             return ResponseEntity.notFound().build();

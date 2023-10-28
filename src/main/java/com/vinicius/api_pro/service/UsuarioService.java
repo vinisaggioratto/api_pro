@@ -3,7 +3,6 @@ package com.vinicius.api_pro.service;
 import com.vinicius.api_pro.data.UsuarioEntity;
 import com.vinicius.api_pro.data.UsuarioRepository;
 import com.vinicius.api_pro.exception.ResourceNotFoundException;
-import com.vinicius.api_pro.security.SecurityConfigurations;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,7 +13,6 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository repository;
-    private SecurityConfigurations security;
 
     public UsuarioEntity getUsuarioId(Long id) {
         return repository.findById(id).orElseThrow(()
@@ -45,7 +43,7 @@ public class UsuarioService {
         return repository.findAll();
     }
 
-    public List<UsuarioEntity> retornarLoginList(String loginUsuario) {
+    public List<UsuarioEntity> retornarUsuarioList(String loginUsuario) {
         List<UsuarioEntity> usuario = repository.findByLogin(loginUsuario);
         return usuario;
     }

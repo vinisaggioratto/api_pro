@@ -1,7 +1,6 @@
 package com.vinicius.api_pro.controller;
 
 import com.vinicius.api_pro.data.PaisEntity;
-import com.vinicius.api_pro.data.PaisRepository;
 import com.vinicius.api_pro.service.PaisService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -24,8 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class PaisController {
 
-    @Autowired
-    private PaisRepository repository;
     @Autowired
     private PaisService service;
 

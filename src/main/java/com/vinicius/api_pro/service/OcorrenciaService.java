@@ -2,7 +2,6 @@ package com.vinicius.api_pro.service;
 
 import com.vinicius.api_pro.data.OcorrenciaEntity;
 import com.vinicius.api_pro.data.OcorrenciaRepository;
-import com.vinicius.api_pro.data.SindicoEntity;
 import com.vinicius.api_pro.exception.ResourceNotFoundException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

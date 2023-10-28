@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.vinicius.api_pro.service;
 
 import com.vinicius.api_pro.data.CondominoApartamentoEntity;
@@ -21,6 +18,7 @@ public class CondominoApartamentoService {
     @Autowired
     private ApartamentoService apartamentoService;
 
+ 
     public CondominoApartamentoEntity getCondominoApartamentoId(Long id) {
         return repository.findById(id).orElseThrow(()
                 -> new ResourceNotFoundException("Associação não encontrado." + id));

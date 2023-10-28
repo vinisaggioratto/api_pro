@@ -22,15 +22,12 @@ public class SindicoEntity {
         this.nome = nome;
     }
     
-    
     	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
         private Date data_inicial;
-
 	private Date data_final_prevista;
-        
         private Date data_final;
         @NotBlank(message="Campo nome é obrigatório.")
 	private String nome;

@@ -32,9 +32,7 @@ public class EntradaEstoqueEntity {
     private String nome;
     
     private Integer quantidade;
-    
     private double valor_unitario;
-
     private Date data_entrada;
 
     @ManyToOne

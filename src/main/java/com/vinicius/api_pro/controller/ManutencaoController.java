@@ -67,7 +67,7 @@ public class ManutencaoController {
             manutencaoExistente.setData_final(manutencao.getData_final());
             manutencaoExistente.setFornecedor(fornecedorService.buscarPorNome(manutencao.getFornecedor().getNome()));
 
-            var manutencaoAtualizado = service.atualizarSindico(id, manutencaoExistente);
+            var manutencaoAtualizado = service.atualizarManutencao(id, manutencaoExistente);
             return new ResponseEntity<>(manutencaoAtualizado, HttpStatus.OK);
         } else {
             return ResponseEntity.notFound().build();
@@ -77,7 +77,7 @@ public class ManutencaoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity deletarManutencao(@PathVariable Long id) {
-        service.deletarSindico(id);
+        service.deletarManutencao(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

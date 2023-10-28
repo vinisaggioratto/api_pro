@@ -21,6 +21,7 @@ public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @NotBlank(message="Campo login é obrigatório.")
     @Size(min=4, message="Informe ao menos 4 caracteres para o campo login.")
     private String login;

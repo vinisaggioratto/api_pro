@@ -22,7 +22,6 @@ public class AvisoEntity {
     public AvisoEntity(String nome) {
         this.nome = nome;
     }
-
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +29,7 @@ public class AvisoEntity {
 
     @NotBlank(message = "Campo nome é obrigatório.")
     private String nome;
-
     private String descricao;
-
     private Date data_aviso;
 
     @ManyToOne

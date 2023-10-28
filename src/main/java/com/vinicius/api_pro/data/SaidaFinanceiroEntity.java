@@ -29,9 +29,7 @@ public class SaidaFinanceiroEntity {
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
     private FornecedorEntity fornecedor;
-
     private Integer nota_fiscal;
-
     private double valor;
     @NotBlank(message = "Campo parcelamento é obrigatório.")
     private String parcelamento;
