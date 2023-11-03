@@ -4,7 +4,10 @@ import com.vinicius.api_pro.data.UsuarioEntity;
 import com.vinicius.api_pro.service.UsuarioService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,14 +64,19 @@ public class UsuarioController {
     }
 
     @PostMapping("/validar-login")
-    public boolean getPesquisarPorLoginAndPassword(@RequestBody UsuarioEntity usuario) {
+    public Map<String, Object> getPesquisarPorLoginAndPassword(@RequestBody UsuarioEntity usuario) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         List<UsuarioEntity> usuarios = service.retornarUsuarioList(usuario.getLogin());
         if (usuarios.isEmpty()) {
-            return false;
+            return Collections.singletonMap("valido", false);
         } else {
             UsuarioEntity usuarioSalvo = usuarios.get(0);
-            return passwordEncoder.matches(usuario.getPassword(), usuarioSalvo.getPassword());
+            String perfil = usuarioSalvo.getPerfil();
+            System.out.println("Perfil: " + perfil);
+            Map<String, Object> resultado = new HashMap<>();
+            resultado.put("valido", passwordEncoder.matches(usuario.getPassword(), usuarioSalvo.getPassword()));
+            resultado.put("perfil", perfil);
+            return resultado;
         }
     }
 }
