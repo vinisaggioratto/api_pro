@@ -1,49 +1,5 @@
 # api_pro
-API para conexão do sistema Condomínio PRO com a web.
+API para conexão do sistema Condomínio PRO com a aplicação web.
 
-Entidades criadas:
 
-Apartamento
-Aviso
-Cidade
-Condomino
-CondominoApartamento
-Dependente
-EntradaEstoque
-EntradaFinanceiro
-Estado
-Fornecedor
-ItemEstoque
-Licencas
-Login
-Manutencao
-Ocorrencia
-Pais
-SaidaEstoque
-SaidaFinanceiro
-Sindico
-TipoDependente
-Veiculo
 
-Repository:
-ApartamentoRepository
-AvisoRepository
-CidadeRepository
-CondominoRepository
-CondominoApartamentoRepository
-DependenteRepository
-EntradaEstoqueRepository
-EntradaFinanceiroRepository
-EstadoRepository
-FornecedorRepository
-ItemEstoqueRepository
-LicencaRepository
-LoginRepository
-ManutencaoRepository
-OcorrenciaRepository
-PaisRepository
-SaidaEstoqueRepository
-SaidaFinanceiroRepository
-SindicoRepository
-TipoDependenteRepository
-VeiculoRepository
